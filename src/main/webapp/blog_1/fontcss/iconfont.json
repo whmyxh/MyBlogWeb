@@ -1,0 +1,44 @@
+{
+  "id": "1763710",
+  "name": "疫情宣传",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "900138",
+      "name": "实时",
+      "font_class": "shishi",
+      "unicode": "e64c",
+      "unicode_decimal": 58956
+    },
+    {
+      "icon_id": "2325623",
+      "name": "本地",
+      "font_class": "bendi",
+      "unicode": "e606",
+      "unicode_decimal": 58886
+    },
+    {
+      "icon_id": "6743097",
+      "name": "海外医疗",
+      "font_class": "haiwaiyiliao",
+      "unicode": "e60e",
+      "unicode_decimal": 58894
+    },
+    {
+      "icon_id": "8085207",
+      "name": "实时查询",
+      "font_class": "ziyuan",
+      "unicode": "e60f",
+      "unicode_decimal": 58895
+    },
+    {
+      "icon_id": "8285358",
+      "name": "全市项目进展",
+      "font_class": "quanshixiangmujinzhan",
+      "unicode": "e618",
+      "unicode_decimal": 58904
+    }
+  ]
+}

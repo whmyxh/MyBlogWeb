@@ -1,0 +1,396 @@
+		html{
+				font-size: 62.5%;
+				margin: 0;
+				padding: 0;
+				/* height: 108rem; */
+				background-image: url(../img/body_backg.svg);/* 设置背景图片并让背景图片填充剩余空间 */
+				background-repeat:no-repeat;
+				background-size:cover;/* 设置cover属性让整个图片填充屏幕 */
+			}
+			body{
+				box-sizing: content-box;
+				padding: 0;
+				margin: 0;
+				
+			}
+			.header_style{
+				width: 100%;
+				height: 18rem;
+				display: flex;
+				flex: 1;
+				margin: 0;
+				padding: 0;
+				align-items: center;
+				justify-content: center;
+				background-position:0% 40%;
+				background-repeat: no-repeat;
+				background-size:  100%;
+				background-image: url(../img/img_headerbac.jpg);
+			}
+			header>h1{
+				width: 100;;
+				text-align: center;
+				font-size: 3rem;
+				font-family: "新宋体";
+			}
+			.article1{
+				display: flex;
+				width: 100%;
+				z-index: 3;
+				
+				justify-content: center;	
+				 
+			}
+			.content{
+				z-index: 3;
+				
+				width: 40%;
+				
+				background-color: antiquewhite;
+				overflow: auto;
+				
+			}
+			.aside_left{
+				display:flex;
+				align-items:flex-start;
+				width: 15%;
+				flex-wrap: wrap;
+				background-color: #ffffff;
+				position: relative;
+				z-index: 4;
+				overflow: auto;
+				height: 85rem;
+				top: 0;
+				flex-shrink: 1;
+				flex-direction: row;
+				margin: 1rem;
+			}
+			.the_information{
+				width: 100%;
+			}
+			.div_1{
+				display: flex;
+				flex-wrap: nowrap;
+				flex: 1;
+				justify-content: center;
+				align-items: center;
+				width: 100%;
+				overflow: auto;
+				font-size: 2.5rem;
+			}
+			.div_2{
+				display: flex;
+				flex-wrap: nowrap;
+				flex-shrink: 1;
+				align-items: center;
+				font-size: 2rem;
+				width: 100%;
+				overflow: auto;
+				font-size: 2rem;
+			}
+			.div_3{
+				display: flex;
+				flex-wrap: nowrap;
+				flex-shrink: 1;
+				align-items: center;
+				font-size: 2rem;
+				width: 100%;
+				overflow: auto;
+			}
+			.div_3>a{
+				text-decoration:none;
+				color: black;
+			}
+			.img_touxiang{
+				margin: 1rem;
+				width: 10rem;
+				border-radius: 50%;
+			}
+			.the_table{
+				width: 100%;
+				overflow: auto;
+				height: 6rem;
+				text-align: center;
+				margin-left: 1rem;
+				margin-right: 1rem;
+				border-radius: 2px;
+				border: 1px solid #000000;
+			}
+			.aside_right{
+				position: relative;
+				z-index: 4;
+				width: 15%;
+				flex-wrap: nowrap;
+				height: 85rem;
+				top: 0;
+				right: 0;
+				margin: 1rem;
+				background-color: #ffffff;
+				overflow: auto;
+			}
+			.nav_2{
+				justify-content: center;
+				width: 100%;
+				display: flex;
+				flex-wrap: wrap;
+				height: 20rem;
+				align-items: center;
+				margin: 0;
+				overflow: auto;
+				padding: 0;
+				z-index: 4;
+				
+			}
+			.nav_2>span{
+				border-radius: 1rem;
+				text-align: center;
+				width: 80%;
+			    color: white;
+				margin-top: 0.5rem;
+				font-size: 2.5rem;
+				font-family: "仿宋";
+				background-color: #555500;
+			}
+			.nav_2>span:hover{
+				
+				color: white;
+				background-color: #000000;
+			}
+			.icon-qq{
+			width: 4rem;
+			height: 4rem;
+			
+			justify-content: flex-start;
+			  
+			}
+			.icon-email{
+			width: 3rem;
+			height: 3rem;
+			justify-content: flex-start;
+			
+			margin-left: 0.5rem;
+			margin-right: 0.5rem;
+			}
+			.from_board{
+				display: flex;
+				flex-wrap: wrap;
+				width: 100%;
+				
+				flex: 1;
+				overflow: auto;
+				height: 40rem;
+				justify-content: center;
+				align-items: flex-start;
+			}
+			.from_board>h1{
+				width: 100%;
+				font-size: 2.5rem;
+				font-family: "宋体";
+				background-color: antiquewhite;
+				text-align: center;
+			}
+			#name_text{
+				width: 100%;
+				font-family: "楷体";
+				display: flex;
+				overflow: auto;
+				align-items: center;
+				font-size: 2.5rem;
+			}
+			#name_text>input{
+				font-size: 1rem;
+				height: 2rem;
+				border-radius: 0.5rem;
+			}
+			#email_text{
+				display: flex;
+				align-items: center;
+				font-size: 2.5rem;
+				margin-top: 1rem;
+				width: 100%;
+				overflow: auto;
+				font-family: "楷体";
+			}
+			#email_text>input{
+				
+				font-size: 1rem;
+				height: 2rem;
+				border-radius: 0.5rem;
+			}
+			#message_text{
+				display: flex;
+				flex-wrap: nowrap;
+				
+				width: 100%;
+				overflow: auto;
+				align-items: flex-start;
+				justify-content: flex-start;
+				margin-top: 1rem;
+				font-size: 2.5rem;
+				font-family: "楷体";
+			}
+			textarea{
+				border-radius: 5px;
+				border: 2px solid #000000;
+			}
+			
+			.the_message{
+				
+				overflow: auto;	
+			}
+			.img_people{
+				border-radius: 50%;
+				width: 4rem;
+				height: 4rem;
+				
+				overflow: hidden;
+			}
+			.people_name{
+				display: flex;
+				align-items: center;
+				
+				overflow: auto;
+				flex-wrap: nowrap;
+				font-size: 2rem;
+				margin: 0;
+				padding: 0;
+			}
+			.time{
+				font-size: 1rem;
+				font-style:italic;
+				font-weight: lighter;
+				overflow: auto;
+				margin-right: 1rem;
+				float: right;
+			}
+			.message{
+				text-indent:2.5rem;
+				font-family: "楷体";
+				font-size: 2rem;
+				border-radius: 5px;
+				margin-left: 1rem;
+				margin-right: 1rem;
+				background-color: #d8d8d8
+			}
+			.message_figure{
+				margin: 0;
+				padding: 0;
+				width: 100%;
+				height:40rem;
+				overflow-y:auto;
+				
+			}
+			.submit_btn{
+				text-align: center;
+				background-color: bisque;
+				border-radius: 1rem;
+				width: 100%;
+				margin-left: 25%;
+				margin-right: 25%;
+				font-family: "微软雅黑";
+				margin-top: 1rem;
+				font-size: 2rem;
+			}
+			.submit_btn:hover{
+				background-color: aqua;
+			}
+			footer{
+				width: 100%;
+				display: flex;
+				overflow: hidden;
+				justify-content: flex-end;
+				
+			}
+			footer>a{
+				font-size: 1.5rem;
+				color: #c2c1ae;
+				text-decoration: none;
+				font-weight: lighter;
+				margin-right: 1rem;
+			}
+			.blog{
+				z-index: 4;
+				width: 94%;
+				
+				border-radius: 20px;
+				background-color: white;
+				padding: 1%;
+				margin-left: 2%;
+				margin-right: 2%;
+				margin-top: 2rem;
+				margin-bottom: 2rem;
+			}
+			.blog_title{
+				width: 100%;
+				text-align: center;
+				font-size: 2.5rem;
+				text-align: center;
+			}
+			.blog_text{
+				text-indent: 2rem;
+				width: 100%;
+			}
+			.blog_img{
+				width: 100%;
+				justify-content: center;
+				align-items: center;
+				height: 20rem;
+				flex-wrap: nowrap;
+				overflow: auto;
+			}
+			.blog_img>img{
+				width: auto;
+				height: auto;
+				
+			}
+			@media screen and (max-width:960px) {/* and和括号之间还要一个空格否者媒体查询会失效 */
+				html{
+					font-size: 50%;
+				}
+				.aside_left{
+					display:flex;
+					align-items:flex-start;
+					width: 100%;
+					flex-wrap: wrap;
+					background-color: #ffffff;
+					
+					z-index: 4;
+					overflow: auto;
+					height: 50rem;
+					
+					flex-shrink: 1;
+					flex-direction: row;
+					margin: 0;
+				}
+				.aside_right{
+					
+					z-index: 4;
+					width: 100%;
+					flex-wrap: nowrap;
+					height: 85rem;
+					
+					margin: 0;
+					background-color: #ffffff;
+					overflow: auto;
+				}
+				.article1{
+					display: flex;
+					width: 100%;
+					z-index: 4;
+					flex-wrap: wrap;
+					justify-content:flex-start;	
+					 
+				}
+				.content{
+					z-index: 4;
+					display: flex;
+					width: 100%;
+					height: auto;
+					background-image: url(../img/body_backg.svg);/* 设置背景图片并让背景图片填充剩余空间 */
+					background-repeat:no-repeat;
+					background-size:cover;/* 设置cover属性让整个图片填充屏幕 */
+					overflow: auto;
+					flex-wrap: wrap;
+				}
+			
+			}

@@ -1,0 +1,51 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "1232634",
+      "name": "qq",
+      "font_class": "qq",
+      "unicode": "e60a",
+      "unicode_decimal": 58890
+    },
+    {
+      "icon_id": "5431164",
+      "name": "电子邮箱",
+      "font_class": "dianziyouxiang",
+      "unicode": "e616",
+      "unicode_decimal": 58902
+    },
+    {
+      "icon_id": "9166442",
+      "name": "其他",
+      "font_class": "qita",
+      "unicode": "e646",
+      "unicode_decimal": 58950
+    },
+    {
+      "icon_id": "10487555",
+      "name": "联系人",
+      "font_class": "lianxiren",
+      "unicode": "e697",
+      "unicode_decimal": 59031
+    },
+    {
+      "icon_id": "11372659",
+      "name": "更多",
+      "font_class": "gengduo",
+      "unicode": "e8af",
+      "unicode_decimal": 59567
+    },
+    {
+      "icon_id": "14296077",
+      "name": "消息",
+      "font_class": "78",
+      "unicode": "e6c4",
+      "unicode_decimal": 59076
+    }
+  ]
+}
