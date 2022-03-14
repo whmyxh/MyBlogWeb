@@ -10,17 +10,10 @@
 		<script src="./font_an6vtfvqxcs/iconfont.js"></script>	
 		<link type="text/css" href="css/index_css.css" rel="stylesheet" />
 		<script src="./js/index.js" charset="UTF-8"></script>
-		<style>
-			
-		</style>
-		<script>
-			
-		</script>
 	</head>
 	<body>
 		<header class="header_style">
 			<h1>欢迎来到我的个人博客</h1>
-			
 		</header>
 		<article class="article1">
 			<aside class="aside_left">
@@ -90,9 +83,6 @@
 					<p class="message">这是一个测试这是一个测试这是一个测试这是一个测试这是一个测试这是一个测试这是一个测试</p>
 					<hr />
 				</div> -->
-			
-			
-				
 			</figure>
 			</aside>
 		</article>
