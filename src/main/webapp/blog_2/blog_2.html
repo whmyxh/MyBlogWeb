@@ -1,239 +1,259 @@
 <!doctype html>
 <html>
 <head>
-  <meta  name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
-  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
-<title>多肉植物介绍</title>
+    <meta content="width=device-width, initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport"/>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <title>多肉植物介绍</title>
 </head>
 <style>
-	html{
-		margin: 0px;
-		padding: 0px;
-		font-size: 62.5%;
-		background-color: #ebebeb;
-	}
-	body{
-		margin: 0px;
-		padding: 0px;
-		box-sizing: border-box;
-	}
-	header{
-		display: flex;
-		width: 100%;
-		margin-top: 2rem;
-		justify-content: center;
-	}
-	header>img{
-		width: 90%;
-		height: 40rem;
-		border-radius: 1rem/1rem;
-		background-size: cover;
-	}
-	nav{
-		display: flex;
-		width: 100%;
-		
-		justify-content: center;
-	}
-	nav>span{
-		width: 10rem;
-		height: 3rem;
-		font-size: 2rem;
-		color: white;
-		padding: 1rem;
-		margin-top: 5rem;
-		background-color: #94ffe6;
-		font-weight: bold;
-		text-align: center;
-		
-		border-radius:50%/100%;
-	}
-	nav>span>a{
-		color: white;
-		text-decoration: none;
-	}
-	nav>span:hover{
-		/*重新设置margin-top和border让nav标签高度保持不变*/
+    html {
+        margin: 0px;
+        padding: 0px;
+        font-size: 62.5%;
+        background-color: #ebebeb;
+    }
+
+    body {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+    }
+
+    header {
+        display: flex;
+        width: 100%;
+        margin-top: 2rem;
+        justify-content: center;
+    }
+
+    header > img {
+        width: 90%;
+        height: 40rem;
+        border-radius: 1rem/1rem;
+        background-size: cover;
+    }
+
+    nav {
+        display: flex;
+        width: 100%;
+
+        justify-content: center;
+    }
+
+    nav > span {
+        width: 10rem;
+        height: 3rem;
+        font-size: 2rem;
+        color: white;
+        padding: 1rem;
+        margin-top: 5rem;
+        background-color: #94ffe6;
+        font-weight: bold;
+        text-align: center;
+
+        border-radius: 50%/100%;
+    }
+
+    nav > span > a {
+        color: white;
+        text-decoration: none;
+    }
+
+    nav > span:hover {
+        /*重新设置margin-top和border让nav标签高度保持不变*/
         margin-top: 4rem;
-		border:0.5rem solid #ffff;
-		box-shadow: 0rem 0rem 2rem #989898;
-	}
-	article{
-		display: flex;
-		width: 100%;
-		justify-content: center;
-		align-items: center;
-		margin: 0px;
-		margin-top: 4rem;
-	}
-	table{
-		width: 86rem;
-		height: 40rem;
-		border: 10px;
-		background-color: white;
-		border-spacing:1rem;
-		border-radius: 1rem/1rem;
-	}
-	table td{
-		width: 20rem;
-		height: 20rem;
-		background-color: #ffffff;
-		text-align: center;
-		position: relative;
-		overflow: hidden;
+        border: 0.5rem solid #ffff;
+        box-shadow: 0rem 0rem 2rem #989898;
+    }
 
-	}
-	td::after{
-		content: "";
-		display: inline-block;
-		width: 15rem;
-		height:20rem;
-		background-color: rgba(38, 255, 172,0.3);
-		position: absolute;
-		transform-origin: 100% 50% 0;
-		top:0;
-		z-index: 1;
-		transition: 1s 0.5s;
-		transform: translateX(1rem);
-}
-	td::before{
-		content: "";
-		display: inline-block;
-		width: 15rem;
-		height:20rem;
-		background-color: rgba(38, 255, 172,0.3);
-		position: absolute;
-		transform-origin: 100% 50% 0;
-		top:0;
-		z-index: 1;
-		transition: 1s 0.5s;
-		transform: translateX(-16rem);
-	}
-	.span1{
-		width: 0rem;
-		height: 0rem;
-		position: absolute;
-		top:40%;
-		left: 0;
-		z-index: 2;
-		color: white;
-		font-weight: bold;
+    article {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        margin: 0px;
+        margin-top: 4rem;
+    }
+
+    table {
+        width: 86rem;
+        height: 40rem;
+        border: 10px;
+        background-color: white;
+        border-spacing: 1rem;
+        border-radius: 1rem/1rem;
+    }
+
+    table td {
+        width: 20rem;
+        height: 20rem;
+        background-color: #ffffff;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+
+    }
+
+    td::after {
+        content: "";
+        display: inline-block;
+        width: 15rem;
+        height: 20rem;
+        background-color: rgba(38, 255, 172, 0.3);
+        position: absolute;
+        transform-origin: 100% 50% 0;
+        top: 0;
+        z-index: 1;
+        transition: 1s 0.5s;
+        transform: translateX(1rem);
+    }
+
+    td::before {
+        content: "";
+        display: inline-block;
+        width: 15rem;
+        height: 20rem;
+        background-color: rgba(38, 255, 172, 0.3);
+        position: absolute;
+        transform-origin: 100% 50% 0;
+        top: 0;
+        z-index: 1;
+        transition: 1s 0.5s;
+        transform: translateX(-16rem);
+    }
+
+    .span1 {
+        width: 0rem;
+        height: 0rem;
+        position: absolute;
+        top: 40%;
+        left: 0;
+        z-index: 2;
+        color: white;
+        font-weight: bold;
         padding-top: 1rem;
-		font-size: 2rem;
-		transform-origin: 100% 0 0;
-		background-color: rgba(0, 0, 0, 0.5);
-		transform: rotateZ(180deg);
-		transition: 1s 0.1s;
-		overflow: hidden;
-	}
+        font-size: 2rem;
+        transform-origin: 100% 0 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        transform: rotateZ(180deg);
+        transition: 1s 0.1s;
+        overflow: hidden;
+    }
 
-	td:hover>span{
-		height: 6rem;
-		width: 20rem;
-		transform: rotateZ(0deg);
-	}
-	td:hover::after{
-		transform: translateX(-12rem);
-	}
-	td:hover::before{
-		transform: translateX(-3rem);
-	}
-	table td>img{
-		width: 20rem;
-		height:20rem ;
-	}
-	section{
-		display: flex;
-		width: 100%;
-		justify-content: center;
-		align-items: flex-start;
-		flex-wrap: wrap;
-	}
-	section>p{
-		width: 86rem;
-		height: 20rem;
-		
-		text-overflow: ellipsis;
-		overflow: auto;
-		background-color: #5cffa2;
-		font-size: 2rem;
-		font-style: italic;
-		line-height: 4rem;
-		text-indent: 2rem;
-		color: white;
-		border-radius: 1rem/1rem;
-	}
-	section>h1{
-		width: 100%;
-		text-align: center;
-		font-size: 3rem;
-		font-weight: bold;
-		color: #5bffbb;
-	}
-	footer{
-		display: flex;
-		width: 100%;
-		justify-content: center;
-	}
-	</style>
+    td:hover > span {
+        height: 6rem;
+        width: 20rem;
+        transform: rotateZ(0deg);
+    }
+
+    td:hover::after {
+        transform: translateX(-12rem);
+    }
+
+    td:hover::before {
+        transform: translateX(-3rem);
+    }
+
+    table td > img {
+        width: 20rem;
+        height: 20rem;
+    }
+
+    section {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+    section > p {
+        width: 86rem;
+        height: 20rem;
+
+        text-overflow: ellipsis;
+        overflow: auto;
+        background-color: #5cffa2;
+        font-size: 2rem;
+        font-style: italic;
+        line-height: 4rem;
+        text-indent: 2rem;
+        color: white;
+        border-radius: 1rem/1rem;
+    }
+
+    section > h1 {
+        width: 100%;
+        text-align: center;
+        font-size: 3rem;
+        font-weight: bold;
+        color: #5bffbb;
+    }
+
+    footer {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+    }
+</style>
 <body>
-	<header>
-		<img src="image/img0.jpg" alt="多肉植物商城"/>
-	</header>
-	<nav>
+<header>
+    <img alt="多肉植物商城" src="image/img0.jpg"/>
+</header>
+<nav>
 		<span>
 			<a href="https://baike.baidu.com/item/%E5%A4%9A%E8%82%89%E6%A4%8D%E7%89%A9/7506243?fromtitle=%E5%A4%9A%E8%82%89&fromid=22705700&fr=aladdin">肉肉百科</a>
 		</span>
-	</nav>
-	<article>
-		<table>
-		<tr>
-			<td>
-				<span class="span1">多肉仙人掌<br>多肉植物防辐射</span>
-				<img src="image/img1.jpg">
-			</td>
-			<td>
-				<span class="span1">多肉仙人掌<br>它能储藏可利用的水</span>
-				<img src="image/img2.jpg">
-			</td>
-			<td>
-				<span class="span1">多肉仙人掌<br>多肉植物能净化空气</span>
-				<img src="image/img3.jpg">
-			</td>
-			<td>
-				<span class="span1">多肉仙人掌<br>多肉美化环境</span>
-				<img src="image/img4.jpg">
-			</td>
-		</tr>
-		<tr>
-			<td>
-				<span class="span1">多肉仙人掌<br>多肉缓解人的压力</span>
-				<img src="image/img5.jpg">
-			</td>
-			<td>
-				<span class="span1">多肉仙人掌<br>多肉适合懒人养</span>
-				<img src="image/img6.jpg">
-			</td>
-			<td>
-				<span class="span1">多肉仙人掌<br>多肉生命力顽强</span>
-				<img src="image/img7.jpg">
-			</td>
-			<td>
-				<span class="span1">多肉仙人掌<br>多肉具药用成分</span>
-				<img src="image/img8.jpg">
-			</td>
-		</tr>
-		</table>
-	</article>
-	<section>
-		<p>多肉植物（succulent plant）是指植物的根、茎、叶三种营养器官中叶是肥厚多汁并且具备储藏大量水分功能的植物，也称“多浆植物”。
-			其至少具有一种肉质组织这种组织是一种活组织，除其他功能外，它能储藏可利用的水，在土壤含水状况恶化、植物根系不能再从土壤中
-			吸收和提供必要的水分时，它能使植物暂时脱离外界水分供应而独立生存。据粗略统计，全世界共有多肉植物一万余种，在分类上隶属100
-			余科，多肉还能净化空气。</p>
-		<h1>偏安一偶&nbsp静静生活</h1>
-	</section>
-	<footer>
-		<h1>作者：徐俊日</h1>
-	</footer>
+</nav>
+<article>
+    <table>
+        <tr>
+            <td>
+                <span class="span1">多肉仙人掌<br>多肉植物防辐射</span>
+                <img src="image/img1.jpg">
+            </td>
+            <td>
+                <span class="span1">多肉仙人掌<br>它能储藏可利用的水</span>
+                <img src="image/img2.jpg">
+            </td>
+            <td>
+                <span class="span1">多肉仙人掌<br>多肉植物能净化空气</span>
+                <img src="image/img3.jpg">
+            </td>
+            <td>
+                <span class="span1">多肉仙人掌<br>多肉美化环境</span>
+                <img src="image/img4.jpg">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span class="span1">多肉仙人掌<br>多肉缓解人的压力</span>
+                <img src="image/img5.jpg">
+            </td>
+            <td>
+                <span class="span1">多肉仙人掌<br>多肉适合懒人养</span>
+                <img src="image/img6.jpg">
+            </td>
+            <td>
+                <span class="span1">多肉仙人掌<br>多肉生命力顽强</span>
+                <img src="image/img7.jpg">
+            </td>
+            <td>
+                <span class="span1">多肉仙人掌<br>多肉具药用成分</span>
+                <img src="image/img8.jpg">
+            </td>
+        </tr>
+    </table>
+</article>
+<section>
+    <p>多肉植物（succulent plant）是指植物的根、茎、叶三种营养器官中叶是肥厚多汁并且具备储藏大量水分功能的植物，也称“多浆植物”。
+        其至少具有一种肉质组织这种组织是一种活组织，除其他功能外，它能储藏可利用的水，在土壤含水状况恶化、植物根系不能再从土壤中
+        吸收和提供必要的水分时，它能使植物暂时脱离外界水分供应而独立生存。据粗略统计，全世界共有多肉植物一万余种，在分类上隶属100
+        余科，多肉还能净化空气。</p>
+    <h1>偏安一偶&nbsp静静生活</h1>
+</section>
+<footer>
+    <h1>作者：徐俊日</h1>
+</footer>
 </body>
 </html>
