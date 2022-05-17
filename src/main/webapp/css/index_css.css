@@ -173,10 +173,12 @@ header > h1 {
     color: white;
     background-color: #000000;
 }
-.nav_2 > span > a{
+
+.nav_2 > span > a {
     color: white;
-    text-decoration:none
+    text-decoration: none
 }
+
 .icon-qq {
     width: 4rem;
     height: 4rem;
