@@ -1,0 +1,2551 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=gb2312">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<title>子网划分与路由配置</title>
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:宋体;
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+@font-face
+	{font-family:黑体;
+	panose-1:2 1 6 9 6 1 1 1 1 1;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:仿宋_GB2312;}
+@font-face
+	{font-family:楷体_GB2312;}
+@font-face
+	{font-family:"\@宋体";
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+@font-face
+	{font-family:"\@黑体";
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+@font-face
+	{font-family:"\@仿宋_GB2312";}
+@font-face
+	{font-family:"\@楷体_GB2312";}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0cm;
+	font-size:12.0pt;
+	font-family:宋体;}
+h2
+	{margin-top:13.0pt;
+	margin-right:0cm;
+	margin-bottom:13.0pt;
+	margin-left:0cm;
+	line-height:172%;
+	page-break-after:avoid;
+	font-size:16.0pt;
+	font-family:"Arial",sans-serif;}
+h3
+	{margin-top:13.0pt;
+	margin-right:0cm;
+	margin-bottom:13.0pt;
+	margin-left:0cm;
+	line-height:172%;
+	page-break-after:avoid;
+	font-size:16.0pt;
+	font-family:宋体;}
+p.MsoBodyText, li.MsoBodyText, div.MsoBodyText
+	{margin:0cm;
+	font-size:10.5pt;
+	font-family:宋体;}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{margin-top:0cm;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:47.9pt;
+	text-indent:-15.95pt;
+	font-size:12.0pt;
+	font-family:宋体;}
+p.a, li.a, div.a
+	{mso-style-name:分类号;
+	margin:0cm;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	font-size:14.0pt;
+	font-family:仿宋_GB2312;}
+p.a0, li.a0, div.a0
+	{mso-style-name:封面日期;
+	margin:0cm;
+	text-align:center;
+	font-size:16.0pt;
+	font-family:黑体;}
+p.a1, li.a1, div.a1
+	{mso-style-name:论文标题;
+	margin:0cm;
+	text-align:center;
+	font-size:26.0pt;
+	font-family:"Times New Roman",serif;
+	font-weight:bold;}
+p.a2, li.a2, div.a2
+	{mso-style-name:硕士学位论文;
+	margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:0cm;
+	text-align:center;
+	font-size:22.0pt;
+	font-family:"Times New Roman",serif;}
+p.a3, li.a3, div.a3
+	{mso-style-name:研究生姓名;
+	margin:0cm;
+	text-align:justify;
+	text-justify:inter-ideograph;
+	text-indent:35.0pt;
+	font-size:14.0pt;
+	font-family:"Times New Roman",serif;}
+p.TableParagraph, li.TableParagraph, div.TableParagraph
+	{mso-style-name:"Table Paragraph";
+	margin-top:1.1pt;
+	margin-right:0cm;
+	margin-bottom:0cm;
+	margin-left:5.35pt;
+	font-size:12.0pt;
+	font-family:"Calibri",sans-serif;}
+span.font21
+	{mso-style-name:font21;
+	font-family:宋体;
+	color:black;
+	font-weight:bold;
+	text-decoration:none;}
+span.font01
+	{mso-style-name:font01;
+	font-family:宋体;
+	color:black;
+	text-decoration:none;}
+span.font31
+	{mso-style-name:font31;
+	font-family:"Calibri",sans-serif;
+	color:black;
+	text-decoration:none;}
+.MsoChpDefault
+	{font-size:10.0pt;}
+ /* Page Definitions */
+ @page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 90.0pt 72.0pt 90.0pt;
+	layout-grid:15.6pt;}
+div.WordSection1
+	{page:WordSection1;}
+@page WordSection2
+	{size:595.5pt 842.0pt;
+	margin:74.0pt 74.0pt 58.0pt 79.0pt;}
+div.WordSection2
+	{page:WordSection2;}
+@page WordSection3
+	{size:595.5pt 842.0pt;
+	margin:75.0pt 74.0pt 58.0pt 79.0pt;}
+div.WordSection3
+	{page:WordSection3;}
+@page WordSection4
+	{size:595.5pt 842.0pt;
+	margin:79.0pt 74.0pt 14.0pt 79.0pt;}
+div.WordSection4
+	{page:WordSection4;}
+@page WordSection5
+	{size:595.5pt 842.0pt;
+	margin:79.0pt 74.0pt 14.0pt 79.0pt;}
+div.WordSection5
+	{page:WordSection5;}
+@page WordSection6
+	{size:595.5pt 842.0pt;
+	margin:75.0pt 74.0pt 58.0pt 79.0pt;}
+div.WordSection6
+	{page:WordSection6;}
+@page WordSection7
+	{size:595.5pt 842.0pt;
+	margin:79.0pt 74.0pt 14.0pt 79.0pt;}
+div.WordSection7
+	{page:WordSection7;}
+@page WordSection8
+	{size:595.5pt 842.0pt;
+	margin:77.0pt 74.0pt 58.0pt 79.0pt;}
+div.WordSection8
+	{page:WordSection8;}
+@page WordSection9
+	{size:595.5pt 842.0pt;
+	margin:78.0pt 74.0pt 58.0pt 79.0pt;}
+div.WordSection9
+	{page:WordSection9;}
+@page WordSection10
+	{size:595.5pt 842.0pt;
+	margin:78.0pt 74.0pt 58.0pt 79.0pt;}
+div.WordSection10
+	{page:WordSection10;}
+@page WordSection11
+	{size:595.5pt 842.0pt;
+	margin:71.0pt 74.0pt 58.0pt 79.0pt;}
+div.WordSection11
+	{page:WordSection11;}
+@page WordSection12
+	{size:595.5pt 842.0pt;
+	margin:77.0pt 74.0pt 58.0pt 79.0pt;}
+div.WordSection12
+	{page:WordSection12;}
+@page WordSection13
+	{size:595.5pt 842.0pt;
+	margin:72.0pt 74.0pt 58.0pt 79.0pt;}
+div.WordSection13
+	{page:WordSection13;}
+@page WordSection14
+	{size:595.5pt 842.0pt;
+	margin:77.0pt 74.0pt 58.0pt 79.0pt;}
+div.WordSection14
+	{page:WordSection14;}
+@page WordSection15
+	{size:595.5pt 842.0pt;
+	margin:79.0pt 74.0pt 14.0pt 79.0pt;}
+div.WordSection15
+	{page:WordSection15;}
+@page WordSection16
+	{size:595.5pt 842.0pt;
+	margin:79.0pt 74.0pt 14.0pt 79.0pt;}
+div.WordSection16
+	{page:WordSection16;}
+@page WordSection17
+	{size:595.5pt 842.0pt;
+	margin:79.0pt 74.0pt 14.0pt 79.0pt;}
+div.WordSection17
+	{page:WordSection17;}
+@page WordSection18
+	{size:595.5pt 842.0pt;
+	margin:79.0pt 74.0pt 14.0pt 79.0pt;}
+div.WordSection18
+	{page:WordSection18;}
+@page WordSection19
+	{size:595.3pt 841.9pt;
+	margin:72.0pt 90.0pt 72.0pt 90.0pt;
+	layout-grid:15.6pt;}
+div.WordSection19
+	{page:WordSection19;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0cm;}
+ul
+	{margin-bottom:0cm;}
+-->
+</style>
+
+</head>
+
+<body lang=ZH-CN style='word-wrap:break-word;text-justify-trim:punctuation'>
+
+<div class=WordSection1 style='layout-grid:15.6pt'>
+
+<div align=center>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0 width=609
+ style='border-collapse:collapse;border:none'>
+ <tr style='page-break-inside:avoid;height:29.25pt'>
+  <td width=77 valign=bottom style='width:57.85pt;border:none;padding:0cm 5.4pt 0cm 5.4pt;
+  height:29.25pt'><b><span lang=EN-US style='font-size:15.0pt;font-family:仿宋_GB2312'><br
+  clear=all style='page-break-before:always'>
+  </span></b>
+  <p class=a>分类号</p>
+  </td>
+  <td width=91 colspan=2 valign=bottom style='width:68.25pt;border:none;
+  border-bottom:dashed windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:
+  29.25pt'>
+  <p class=a><b><span lang=EN-US>&nbsp;</span></b></p>
+  </td>
+  <td width=287 colspan=3 valign=bottom style='width:215.15pt;border:none;
+  padding:0cm 5.4pt 0cm 5.4pt;height:29.25pt'>
+  <p class=a><span lang=EN-US>&nbsp;</span></p>
+  </td>
+  <td width=63 colspan=2 valign=bottom style='width:47.25pt;border:none;
+  padding:0cm 5.4pt 0cm 5.4pt;height:29.25pt'>
+  <p class=a>密 级</p>
+  </td>
+  <td width=91 valign=bottom style='width:68.25pt;border:none;border-bottom:
+  dashed windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:29.25pt'>
+  <p class=a>公开</p>
+  </td>
+ </tr>
+ <tr style='page-break-inside:avoid;height:29.25pt'>
+  <td width=77 valign=bottom style='width:57.85pt;border:none;padding:0cm 5.4pt 0cm 5.4pt;
+  height:29.25pt'>
+  <p class=a><span lang=EN-US>U D C</span></p>
+  </td>
+  <td width=91 colspan=2 valign=bottom style='width:68.25pt;border:none;
+  border-bottom:dashed windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:
+  29.25pt'>
+  <p class=a><span lang=EN-US>&nbsp;</span></p>
+  </td>
+  <td width=287 colspan=3 valign=bottom style='width:215.15pt;border:none;
+  padding:0cm 5.4pt 0cm 5.4pt;height:29.25pt'>
+  <p class=a><span lang=EN-US>&nbsp;</span></p>
+  </td>
+  <td width=63 colspan=2 valign=bottom style='width:47.25pt;border:none;
+  padding:0cm 5.4pt 0cm 5.4pt;height:29.25pt'>
+  <p class=a>编 号</p>
+  </td>
+  <td width=91 valign=bottom style='width:68.25pt;border:none;border-bottom:
+  dashed windowtext 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;height:29.25pt'>
+  <p class=a><span lang=EN-US>&nbsp;</span></p>
+  </td>
+ </tr>
+ <tr style='height:2.0cm'>
+  <td width=609 colspan=9 valign=top style='width:456.75pt;border:none;
+  padding:0cm 5.4pt 0cm 5.4pt;height:2.0cm'>
+  <p class=a><span lang=EN-US style='font-size:22.0pt'>&nbsp;</span></p>
+  <p class=a><span lang=EN-US style='font-size:22.0pt'>&nbsp;</span></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=609 colspan=9 valign=top style='width:456.75pt;border:none;
+  padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=a2 style='text-align:justify;text-justify:inter-ideograph'><span
+  lang=EN-US style='color:black'>&nbsp;</span></p>
+  <p class=a2><b><span style='font-size:28.0pt;font-family:宋体;color:black'>实验四</span></b><b><span
+  style='font-size:28.0pt;color:black'> </span></b><b><span style='font-size:
+  28.0pt;font-family:宋体;color:black'>子网划分与路由器配置</span></b></p>
+  </td>
+ </tr>
+ <tr style='height:63.85pt'>
+  <td width=609 colspan=9 valign=top style='width:456.75pt;border:none;
+  padding:0cm 5.4pt 0cm 5.4pt;height:63.85pt'>
+  <p class=MsoNormal align=center style='text-align:center;layout-grid-mode:
+  char'><span lang=EN-US style='font-size:22.0pt;color:black'>&nbsp;</span></p>
+  </td>
+ </tr>
+ <tr style='height:127.25pt'>
+  <td width=609 colspan=9 valign=top style='width:456.75pt;border:none;
+  padding:0cm 5.4pt 0cm 5.4pt;height:127.25pt'>
+  <p class=a1><span style='font-size:28.0pt;font-family:楷体_GB2312;color:black'>实验报告</span></p>
+  <p class=a1><span lang=EN-US>&nbsp;</span></p>
+  </td>
+ </tr>
+ <tr style='page-break-inside:avoid;height:31.5pt'>
+  <td width=83 colspan=2 rowspan=2 style='width:62.05pt;border:none;padding:
+  0cm 5.4pt 0cm 5.4pt;height:31.5pt'>
+  <p class=MsoNormal style='layout-grid-mode:char'><span lang=EN-US
+  style='font-size:26.0pt;color:black'>&nbsp;</span></p>
+  </td>
+  <td width=201 colspan=2 style='width:150.8pt;border:none;padding:0cm 5.4pt 0cm 5.4pt;
+  height:31.5pt'>
+  <p class=a3 style='text-indent:0cm'><span style='font-family:宋体'>班级：</span> </p>
+  </td>
+  <td width=19 style='width:14.2pt;border:none;padding:0cm 5.4pt 0cm 5.4pt;
+  height:31.5pt'>
+  <p class=a3 style='text-indent:98.0pt'><span style='font-family:宋体'>：</span></p>
+  </td>
+  <td width=205 colspan=2 style='width:154.0pt;border:none;padding:0cm 5.4pt 0cm 5.4pt;
+  height:31.5pt'>
+  <p class=a3 style='text-indent:0cm'><span lang=EN-US>1982066</span><span
+  style='font-family:宋体'>班</span></p>
+  </td>
+  <td width=101 colspan=2 rowspan=2 style='width:75.7pt;border:none;padding:
+  0cm 5.4pt 0cm 5.4pt;height:31.5pt'>
+  <p class=MsoNormal style='layout-grid-mode:char'><span lang=EN-US
+  style='font-size:26.0pt;color:black'>&nbsp;</span></p>
+  </td>
+ </tr>
+ <tr style='page-break-inside:avoid;height:31.5pt'>
+  <td width=201 colspan=2 style='width:150.8pt;border:none;padding:0cm 5.4pt 0cm 5.4pt;
+  height:31.5pt'>
+  <p class=a3 style='text-indent:0cm'><span style='font-family:宋体'>学</span> <span
+  style='font-family:宋体'>号：</span></p>
+  </td>
+  <td width=19 style='width:14.2pt;border:none;padding:0cm 5.4pt 0cm 5.4pt;
+  height:31.5pt'>
+  <p class=a3 style='text-indent:98.0pt'><span style='font-family:宋体'>：</span></p>
+  </td>
+  <td width=205 colspan=2 style='width:154.0pt;border:none;padding:0cm 5.4pt 0cm 5.4pt;
+  height:31.5pt'>
+  <p class=a3 style='text-indent:0cm'><span lang=EN-US>198206636</span></p>
+  </td>
+ </tr>
+ <tr style='page-break-inside:avoid;height:31.5pt'>
+  <td width=83 colspan=2 style='width:62.05pt;border:none;padding:0cm 5.4pt 0cm 5.4pt;
+  height:31.5pt'>
+  <p class=MsoNormal><span lang=EN-US style='font-size:26.0pt;color:black'>&nbsp;</span></p>
+  </td>
+  <td width=201 colspan=2 style='width:150.8pt;border:none;padding:0cm 5.4pt 0cm 5.4pt;
+  height:31.5pt'>
+  <p class=a3 style='text-indent:0cm'><span style='font-family:宋体'>学</span><span
+  lang=EN-US>&nbsp; </span><span style='font-family:宋体'>生</span><span
+  lang=EN-US>&nbsp; </span><span style='font-family:宋体'>姓</span><span
+  lang=EN-US>&nbsp; </span><span style='font-family:宋体'>名：</span> </p>
+  </td>
+  <td width=19 style='width:14.2pt;border:none;padding:0cm 5.4pt 0cm 5.4pt;
+  height:31.5pt'>
+  <p class=a3 style='text-indent:98.0pt'><span lang=EN-US>&nbsp;</span></p>
+  </td>
+  <td width=205 colspan=2 style='width:154.0pt;border:none;padding:0cm 5.4pt 0cm 5.4pt;
+  height:31.5pt'>
+  <p class=a3 style='text-indent:0cm'><span style='font-family:宋体'>徐俊日</span></p>
+  </td>
+  <td width=101 colspan=2 style='width:75.7pt;border:none;padding:0cm 5.4pt 0cm 5.4pt;
+  height:31.5pt'>
+  <p class=MsoNormal style='text-align:justify;text-justify:distribute-all-lines'><span
+  lang=EN-US style='font-size:26.0pt;color:black'>&nbsp;</span></p>
+  </td>
+ </tr>
+ <tr style='height:55.25pt'>
+  <td width=609 colspan=9 valign=top style='width:456.75pt;border:none;
+  padding:0cm 5.4pt 0cm 5.4pt;height:55.25pt'>
+  <p class=a0 style='text-align:justify;text-justify:inter-ideograph'><span
+  lang=EN-US>&nbsp;</span></p>
+  <p class=a0>二〇二二年 四 月</p>
+  </td>
+ </tr>
+ <tr height=0>
+  <td width=60 style='border:none'></td>
+  <td width=4 style='border:none'></td>
+  <td width=66 style='border:none'></td>
+  <td width=77 style='border:none'></td>
+  <td width=164 style='border:none'></td>
+  <td width=113 style='border:none'></td>
+  <td width=50 style='border:none'></td>
+  <td width=7 style='border:none'></td>
+  <td width=68 style='border:none'></td>
+ </tr>
+</table>
+
+</div>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+</div>
+
+<b><span lang=EN-US style='font-size:16.0pt;line-height:172%;font-family:"Times New Roman",serif'><br
+clear=all style='page-break-before:always'>
+</span></b>
+
+<div class=WordSection2>
+
+<h2 style='margin-top:7.55pt'><span style='font-family:黑体'>三、实验内容</span></h2>
+
+<p class=MsoBodyText style='margin-top:.4pt'><b><span lang=EN-US
+style='font-size:16.5pt'>&nbsp;</span></b></p>
+
+<p class=MsoBodyText style='margin-left:32.0pt;text-align:justify;text-justify:
+inter-ideograph'><span style='letter-spacing:-.4pt'>理工大学具有 </span><span
+lang=EN-US style='font-family:"Calibri",sans-serif'>4<span style='letter-spacing:
+.4pt'> </span></span>个主校区，分别是中心校区、标营校区、双龙街校区以及岔路口校区，</p>
+
+<p class=MsoBodyText style='margin-top:5.25pt;margin-right:15.55pt;margin-bottom:
+0cm;margin-left:11.0pt;margin-bottom:.0001pt;text-align:justify;text-justify:
+inter-ideograph;line-height:138%'><span style='letter-spacing:-.2pt'>根据机构和人员的分布情况，每个校区约有
+</span><span lang=EN-US style='font-family:"Calibri",sans-serif'>4000<span
+style='letter-spacing:.3pt'> </span></span>台设备接入校园网络，为了实现校区之间<span
+style='letter-spacing:-.15pt'>的网络数据通信，学校购置了一批路由器和交换机对网络设施进行升级改造，每个校区有一</span>台路由器作为接入路由器，且校区路由器之间通过链路互联。本次实验你的任务是：</p>
+
+<p class=MsoListParagraph style='margin-top:.1pt;margin-right:0cm;margin-bottom:
+0cm;margin-left:58.45pt;margin-bottom:.0001pt;text-align:justify;text-justify:
+inter-ideograph;text-indent:-26.5pt'><span lang=EN-US style='font-size:9.5pt;
+letter-spacing:-.1pt'>（1）<span style='font:7.0pt "Times New Roman"'> </span></span><span
+style='font-size:10.5pt;letter-spacing:-.95pt'>利用 </span><span lang=EN-US
+style='font-size:10.5pt;font-family:"Calibri",sans-serif;letter-spacing:-.05pt'>Packet</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri",sans-serif;letter-spacing:
+-.15pt'> </span><span lang=EN-US style='font-size:10.5pt;font-family:"Calibri",sans-serif;
+letter-spacing:-.05pt'>Tracer</span><span lang=EN-US style='font-size:10.5pt;
+font-family:"Calibri",sans-serif;letter-spacing:.3pt'> </span><span
+style='font-size:10.5pt;letter-spacing:-.05pt'>软件绘制各个校区之间网络互联的逻辑结构图；</span></p>
+
+<p class=MsoListParagraph style='margin-top:5.25pt;margin-right:15.55pt;
+margin-bottom:0cm;margin-left:11.0pt;margin-bottom:.0001pt;text-align:justify;
+text-justify:inter-ideograph;text-indent:20.95pt;line-height:138%'><span
+lang=EN-US style='font-size:9.5pt;line-height:138%;letter-spacing:-.1pt'>（2）<span
+style='font:7.0pt "Times New Roman"'> </span></span><span style='font-size:
+10.5pt;line-height:138%;letter-spacing:-.2pt'>根据总部为学校分配的 </span><span
+lang=EN-US style='font-size:10.5pt;line-height:138%;font-family:"Calibri",sans-serif'>IP<span
+style='letter-spacing:1.25pt'> </span></span><span style='font-size:10.5pt;
+line-height:138%;letter-spacing:-.4pt'>地址块 </span><span lang=EN-US
+style='font-size:10.5pt;line-height:138%;font-family:"Calibri",sans-serif'>26.28.0.0/16</span><span
+style='font-size:10.5pt;line-height:138%'>，按照校区划分子网，并根据每个<span
+style='letter-spacing:-.1pt'>校区的接入设备数目为每个校区的子网划分 </span></span><span
+lang=EN-US style='font-size:10.5pt;line-height:138%;font-family:"Calibri",sans-serif'>IP<span
+style='letter-spacing:1.55pt'> </span></span><span style='font-size:10.5pt;
+line-height:138%'>地址块，并在每个校区网络内选择两台主机<span style='letter-spacing:-.15pt'>作为代表性主机</span>（<span
+style='letter-spacing:-.15pt'>中心校区部署一台服务器</span><span style='letter-spacing:
+-5.4pt'>）</span><span style='letter-spacing:-.15pt'>，为其分配具体</span><span
+style='letter-spacing:-2.65pt'> </span></span><span lang=EN-US
+style='font-size:10.5pt;line-height:138%;font-family:"Calibri",sans-serif;
+letter-spacing:-.05pt'>I</span><span lang=EN-US style='font-size:10.5pt;
+line-height:138%;font-family:"Calibri",sans-serif'>P<span style='letter-spacing:
+.2pt'> </span></span><span style='font-size:10.5pt;line-height:138%;letter-spacing:
+-.1pt'>地址；</span></p>
+
+<p class=MsoListParagraph style='margin-top:.05pt;margin-right:15.7pt;
+margin-bottom:0cm;margin-left:11.0pt;margin-bottom:.0001pt;text-indent:20.95pt;
+line-height:138%'><span lang=EN-US style='font-size:9.5pt;line-height:138%;
+letter-spacing:-.1pt'>（3）<span style='font:7.0pt "Times New Roman"'> </span></span><span
+style='font-size:10.5pt;line-height:138%'>在校区互联路由器上配置静态路由协议，实现校区子网之间的连通，并测试任意两个校区内网络设备的连通性；</span></p>
+
+<p class=MsoListParagraph style='margin-top:.1pt;margin-right:15.55pt;
+margin-bottom:0cm;margin-left:11.0pt;margin-bottom:.0001pt;text-indent:20.95pt;
+line-height:138%'><span lang=EN-US style='font-size:9.5pt;line-height:138%;
+letter-spacing:-.1pt'>（4）<span style='font:7.0pt "Times New Roman"'> </span></span><span
+style='font-size:10.5pt;line-height:138%;letter-spacing:-.1pt'>在校区互联路由器上配置动态 </span><span
+lang=EN-US style='font-size:10.5pt;line-height:138%;font-family:"Calibri",sans-serif'>RIPv2<span
+style='letter-spacing:1.55pt'> </span></span><span style='font-size:10.5pt;
+line-height:138%'>路由协议，实现校区子网之间的连通，并测试任意两个校区内网络设备的连通性；</span></p>
+
+<p class=MsoListParagraph style='margin-left:58.45pt;text-indent:-26.5pt'><span
+lang=EN-US style='font-size:9.5pt;letter-spacing:-.1pt'>（5）<span
+style='font:7.0pt "Times New Roman"'> </span></span><span style='font-size:
+10.5pt;letter-spacing:-.1pt'>在中心校区网络内部署一台 </span><span lang=EN-US
+style='font-size:10.5pt;font-family:"Calibri",sans-serif'>web<span
+style='letter-spacing:1.65pt'> </span></span><span style='font-size:10.5pt'>服务器，其他校区内的主机可以访问该服务器；</span></p>
+
+<p class=MsoListParagraph style='margin-top:5.3pt;margin-right:15.65pt;
+margin-bottom:0cm;margin-left:11.0pt;margin-bottom:.0001pt;text-indent:20.95pt;
+line-height:138%'><span lang=EN-US style='font-size:9.5pt;line-height:138%;
+letter-spacing:-.1pt'>（6）<span style='font:7.0pt "Times New Roman"'> </span></span><span
+style='font-size:10.5pt;line-height:138%;letter-spacing:-.35pt'>实验完成后将最后生成的两个 </span><span
+lang=EN-US style='font-size:10.5pt;line-height:138%;font-family:"Calibri",sans-serif;
+letter-spacing:-.15pt'>pkt</span><span lang=EN-US style='font-size:10.5pt;
+line-height:138%;font-family:"Calibri",sans-serif;letter-spacing:.2pt'> </span><span
+style='font-size:10.5pt;line-height:138%;letter-spacing:-.1pt'>文件（</span><span
+style='font-size:10.5pt;line-height:138%;letter-spacing:-.4pt'>分别对应静态路由和 </span><span
+lang=EN-US style='font-size:10.5pt;line-height:138%;font-family:"Calibri",sans-serif;
+letter-spacing:-.1pt'>RIP</span><span lang=EN-US style='font-size:10.5pt;
+line-height:138%;font-family:"Calibri",sans-serif;letter-spacing:.25pt'> </span><span
+style='font-size:10.5pt;line-height:138%;letter-spacing:-.1pt'>动态路由）与</span><span
+style='font-size:10.5pt;line-height:138%'>实验报告一起上交。</span></p>
+
+<p class=MsoNormal style='line-height:138%'><b><span style='font-size:10.5pt;
+line-height:138%;color:red'>注：</span></b></p>
+
+<p class=MsoNormal style='line-height:138%'><b><span style='font-size:10.5pt;
+line-height:138%;color:red'>评分标准，共计<span lang=EN-US>100</span>分</span></b></p>
+
+<p class=MsoNormal style='line-height:138%'><b><span lang=EN-US
+style='font-size:10.5pt;line-height:138%;color:red'>Cisco Packet Tracer Student
+(.pkt)</span></b><b><span style='font-size:10.5pt;line-height:138%;color:red'>格式要求：</span></b></p>
+
+<p class=MsoNormal style='line-height:138%'><b><span style='font-size:10.5pt;
+line-height:138%;color:red'>学号<span lang=EN-US>-</span>姓名<span lang=EN-US>-</span>静态路由<span
+lang=EN-US>.pkt</span></span></b></p>
+
+<p class=MsoNormal style='line-height:138%'><b><span style='font-size:10.5pt;
+line-height:138%;color:red'>学号<span lang=EN-US>-</span>姓名<span lang=EN-US>-</span>动态路由<span
+lang=EN-US>.pkt</span></span></b></p>
+
+<p class=MsoNormal style='line-height:138%'><b><span lang=EN-US
+style='font-size:10.5pt;line-height:138%;color:red'>&nbsp;</span></b></p>
+
+<p class=MsoNormal style='line-height:138%'><b><span lang=EN-US
+style='font-size:10.5pt;line-height:138%;color:red'>2</span></b><b><span
+style='font-size:10.5pt;line-height:138%;color:red'>个文件可以正常保证任意主机之间能正常通信</span></b></p>
+
+<p class=MsoNormal style='line-height:138%'><b><span lang=EN-US
+style='font-size:10.5pt;line-height:138%;color:red'>1</span></b><b><span
+style='font-size:10.5pt;line-height:138%;color:red'>：不同子网内的任意主机之间能够正常通信（使用<span
+lang=EN-US>ping</span>测试）</span></b></p>
+
+<p class=MsoNormal style='line-height:138%'><b><span lang=EN-US
+style='font-size:10.5pt;line-height:138%;color:red'>2</span></b><b><span
+style='font-size:10.5pt;line-height:138%;color:red'>：测试主机到中心校区子网内<span
+lang=EN-US> Web </span>服务器的连通性（登录学校模拟网站）</span></b></p>
+
+<p class=MsoNormal style='line-height:138%'><b><span lang=EN-US
+style='font-size:10.5pt;line-height:138%;color:red'>&nbsp;</span></b></p>
+
+<p class=MsoNormal style='line-height:138%'><b><span style='font-size:10.5pt;
+line-height:138%;color:red'>和实验报告内容一致，则<span lang=EN-US>60</span>分</span></b></p>
+
+<p class=MsoNormal style='line-height:138%'><b><span lang=EN-US
+style='font-size:10.5pt;line-height:138%;color:red'>&nbsp;</span></b></p>
+
+<p class=MsoNormal style='line-height:138%'><b><span style='font-size:10.5pt;
+line-height:138%;color:red'>改进网络规划设计</span></b></p>
+
+<p class=MsoNormal style='line-height:138%'><b><span style='font-size:10.5pt;
+line-height:138%;color:red'>改进本实验设计的网络拓扑和地址规划，完成相关配置并测试网络连通性</span></b></p>
+
+<p class=MsoNormal style='line-height:138%'><b><span lang=EN-US
+style='font-size:10.5pt;line-height:138%;color:red'>&nbsp;</span></b></p>
+
+<p class=MsoNormal style='line-height:138%'><b><span lang=EN-US
+style='font-size:10.5pt;line-height:138%;color:red'>1</span></b><b><span
+style='font-size:10.5pt;line-height:138%;color:red'>：在网络规划过程中我们将两个直接相连的路由器也作为一个子网处理，并为其分配了一个<span
+lang=EN-US> 4096 </span>个地址的子网地址空间，显然造成了<span lang=EN-US> IP </span>地址资源的很大浪费（<span
+lang=EN-US>30</span>分）<span lang=EN-US>.</span></span></b></p>
+
+<p class=MsoNormal style='line-height:138%'><b><span style='font-size:10.5pt;
+line-height:138%;color:red'>本实验设计的网络拓扑中任意校区之间物理链路的失效都将导致网络不再连通<span lang=EN-US>(10</span>分<span
+lang=EN-US>)</span></span></b></p>
+
+<p class=MsoNormal style='line-height:138%'><b><span lang=EN-US
+style='font-size:10.5pt;line-height:138%;color:red'>&nbsp;</span></b></p>
+
+<p class=MsoNormal style='line-height:138%'><b><span lang=EN-US
+style='font-size:10.5pt;line-height:138%;color:red'>&nbsp;</span></b></p>
+
+<p class=MsoNormal style='line-height:138%'><span lang=EN-US style='font-size:
+10.5pt;line-height:138%'>&nbsp;</span></p>
+
+<p class=MsoNormal style='line-height:138%'><span lang=EN-US style='font-size:
+10.5pt;line-height:138%'>&nbsp;</span></p>
+
+</div>
+
+<span lang=EN-US style='font-size:10.5pt;line-height:138%;font-family:宋体'><br
+clear=all style='page-break-before:auto'>
+</span>
+
+<div class=WordSection3>
+
+<h2 style='margin-top:2.2pt'><span style='font-family:黑体'>四、实验步骤</span></h2>
+
+<h3 style='margin-left:11.0pt'><span lang=EN-US style='font-family:"Times New Roman",serif'>1<span
+style='letter-spacing:1.7pt'>.</span></span>规划网络拓扑</h3>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><img
+width=590 height=387 id="图片 15" src="blog3.files/image001.png"></span></p>
+
+<h3 style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:10.95pt;
+line-height:normal'><span lang=EN-US>2.</span>划分<span lang=EN-US>IP</span>地址块</h3>
+
+</div>
+
+<span lang=EN-US style='font-size:8.0pt;font-family:宋体'><br clear=all
+style='page-break-before:auto'>
+</span>
+
+<div class=WordSection4></div>
+
+<span lang=EN-US style='font-size:10.0pt;font-family:宋体'><br clear=all
+style='page-break-before:auto'>
+</span>
+
+<div class=WordSection5>
+
+<p class=MsoBodyText style='margin-top:.05pt'><span lang=EN-US
+style='font-size:9.5pt'>&nbsp;</span></p>
+
+<p class=MsoBodyText style='margin-top:3.6pt;margin-right:15.55pt;margin-bottom:
+0cm;margin-left:11.0pt;margin-bottom:.0001pt;text-align:justify;text-justify:
+inter-ideograph;text-indent:20.95pt;line-height:135%'><span style='letter-spacing:
+-.05pt'>完成拓扑规划后，下一步工作即如何为每个校区划分 </span><span lang=EN-US style='font-family:
+"Calibri",sans-serif'>IP<span style='letter-spacing:1.55pt'> </span></span>地址块，以满足各个校区的接<span
+style='letter-spacing:-.3pt'>入设备数量要求。</span></p>
+
+<p class=MsoBodyText style='margin-top:3.6pt;margin-right:15.55pt;margin-bottom:
+0cm;margin-left:11.0pt;margin-bottom:.0001pt;text-align:justify;text-justify:
+inter-ideograph;text-indent:20.95pt;line-height:135%'><span style='letter-spacing:
+-.3pt'>（请参考标红部分，写出自己的规划思路，并如表<span lang=EN-US>5.1</span>所示，输出规划表格）<span
+style='color:red'>由于总部为学校分配的 </span></span><span lang=EN-US style='font-family:
+"Calibri",sans-serif;color:red;letter-spacing:-.15pt'>IP</span><span
+lang=EN-US style='font-family:"Calibri",sans-serif;color:red;letter-spacing:
+.35pt'> </span><span style='color:red;letter-spacing:-.8pt'>地址块 </span><span
+lang=EN-US style='font-family:"Calibri",sans-serif;color:red;letter-spacing:
+-.15pt'>26.28.0.0/16</span><span style='color:red;letter-spacing:-.45pt'>，其网络前缀为
+</span><span lang=EN-US style='font-family:"Calibri",sans-serif;color:red;
+letter-spacing:-.1pt'>16bit</span><span style='color:red;letter-spacing:-.1pt'>，因此</span><span
+style='color:red;letter-spacing:-.25pt'>后面可变的主机地址位数为 </span><span lang=EN-US
+style='font-family:"Calibri",sans-serif;color:red'>32-16=16bit</span><span
+style='color:red'>，总的可用地址数量为</span><span lang=EN-US style='font-size:11.5pt;
+line-height:135%;font-family:"Times New Roman",serif;color:red'>2<sup>16</sup><span
+style='letter-spacing:1.0pt'> </span></span><span lang=EN-US style='font-size:
+11.5pt;line-height:135%;font-family:Symbol;color:red'>=</span><span lang=EN-US
+style='font-size:11.5pt;line-height:135%;font-family:"Times New Roman",serif;
+color:red;letter-spacing:-.45pt'> </span><span lang=EN-US style='font-size:
+11.5pt;line-height:135%;font-family:"Times New Roman",serif;color:red'>65536<span
+style='letter-spacing:-1.45pt'> </span></span><span style='color:red'>，因此地址数量<span
+style='letter-spacing:-.2pt'>能够满足学校总的地址需求。每个校区网络接入设备约 </span></span><span
+lang=EN-US style='font-family:"Calibri",sans-serif;color:red'>4000<span
+style='letter-spacing:.3pt'> </span></span><span style='color:red;letter-spacing:
+-1.35pt'>台， </span><span lang=EN-US style='font-size:11.5pt;line-height:135%;
+font-family:"Times New Roman",serif;color:red'>2<sup>12</sup><span
+style='letter-spacing:1.0pt'> </span></span><span lang=EN-US style='font-size:
+11.5pt;line-height:135%;font-family:Symbol;color:red'>=</span><span lang=EN-US
+style='font-size:11.5pt;line-height:135%;font-family:"Times New Roman",serif;
+color:red;letter-spacing:-.3pt'> </span><span lang=EN-US style='font-size:11.5pt;
+line-height:135%;font-family:"Times New Roman",serif;color:red'>4096<span
+style='letter-spacing:-.6pt'> </span></span><span style='color:red'>，因此每个校</span></p>
+
+</div>
+
+<span lang=EN-US style='font-size:12.0pt;line-height:135%;font-family:宋体;
+color:red'><br clear=all style='page-break-before:always'>
+</span>
+
+<div class=WordSection6>
+
+<p class=MsoBodyText style='margin-top:2.75pt;margin-right:0cm;margin-bottom:
+0cm;margin-left:11.0pt;margin-bottom:.0001pt;text-align:justify;text-justify:
+inter-ideograph'><span style='color:red;letter-spacing:-.3pt'>区需要的主机地址位数为 </span><span
+lang=EN-US style='font-family:"Calibri",sans-serif;color:red'>12bit</span><span
+style='color:red'>。</span></p>
+
+<p class=MsoBodyText style='margin-top:5.3pt;margin-right:15.55pt;margin-bottom:
+0cm;margin-left:11.0pt;margin-bottom:.0001pt;text-align:justify;text-justify:
+inter-ideograph;text-indent:20.95pt;line-height:138%'><span style='color:red;
+letter-spacing:-.05pt'>此外，不同校区的接入路由器互联也需要划分一个子网空间，因此，一种可行的 </span><span
+lang=EN-US style='font-family:"Calibri",sans-serif;color:red'>IP<span
+style='letter-spacing:1.5pt'> </span></span><span style='color:red'>地<span
+style='letter-spacing:-.45pt'>址划分机制如表 </span></span><span lang=EN-US
+style='font-family:"Calibri",sans-serif;color:red;letter-spacing:-.1pt'>5-1</span><span
+lang=EN-US style='font-family:"Calibri",sans-serif;color:red;letter-spacing:
+.15pt'> </span><span style='color:red;letter-spacing:-.1pt'>所示。需要指出的是，这里地址空间划分方式并不唯一，只要能够满足</span><span
+style='color:red'>接入主机数目要求的划分机制均可。</span></p>
+
+<p class=MsoBodyText style='margin-top:5.3pt;margin-right:15.55pt;margin-bottom:
+0cm;margin-left:11.0pt;margin-bottom:.0001pt;text-align:justify;text-justify:
+inter-ideograph;text-indent:20.95pt;line-height:138%'><span lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoBodyText style='margin-top:0cm;margin-right:0cm;margin-bottom:1.0pt;
+margin-left:144.7pt;text-align:justify;text-justify:inter-ideograph;line-height:
+11.95pt'><span style='letter-spacing:-1.35pt'>表 </span><span lang=EN-US
+style='font-family:"Calibri",sans-serif'>5-1<span style='letter-spacing:.5pt'> </span></span>一种可行的地址空间划分方案</p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0
+ style='margin-left:11.5pt;border-collapse:collapse;border:none'>
+ <tr style='height:15.55pt'>
+  <td width=137 valign=top style='width:102.4pt;border:solid black 1.0pt;
+  padding:0cm 0cm 0cm 0cm;height:15.55pt'>
+  <p class=TableParagraph align=center style='margin-top:1.1pt;margin-right:
+  21.7pt;margin-bottom:0cm;margin-left:22.25pt;margin-bottom:.0001pt;
+  text-align:center'><span style='font-size:10.5pt;font-family:宋体'>校区</span></p>
+  </td>
+  <td width=140 valign=top style='width:104.75pt;border:solid black 1.0pt;
+  border-left:none;padding:0cm 0cm 0cm 0cm;height:15.55pt'>
+  <p class=TableParagraph align=center style='margin-top:1.1pt;margin-right:
+  19.35pt;margin-bottom:0cm;margin-left:19.9pt;margin-bottom:.0001pt;
+  text-align:center'><span style='font-size:10.5pt;font-family:宋体'>地址空间前缀</span></p>
+  </td>
+  <td width=137 valign=top style='width:102.85pt;border:solid black 1.0pt;
+  border-left:none;padding:0cm 0cm 0cm 0cm;height:15.55pt'>
+  <p class=TableParagraph align=center style='margin-top:1.1pt;margin-right:
+  23.55pt;margin-bottom:0cm;margin-left:24.15pt;margin-bottom:.0001pt;
+  text-align:center'><span lang=EN-US style='font-size:10.5pt'>IP<span
+  style='letter-spacing:.2pt'> </span></span><span style='font-size:10.5pt;
+  font-family:宋体'>地址数目</span></p>
+  </td>
+  <td width=140 valign=top style='width:104.9pt;border:solid black 1.0pt;
+  border-left:none;padding:0cm 0cm 0cm 0cm;height:15.55pt'>
+  <p class=TableParagraph align=center style='margin-top:1.1pt;margin-right:
+  20.25pt;margin-bottom:0cm;margin-left:20.8pt;margin-bottom:.0001pt;
+  text-align:center'><span style='font-size:10.5pt;font-family:宋体'>子网掩码</span></p>
+  </td>
+ </tr>
+ <tr style='height:15.55pt'>
+  <td width=137 valign=top style='width:102.4pt;border:solid black 1.0pt;
+  border-top:none;padding:0cm 0cm 0cm 0cm;height:15.55pt'>
+  <p class=TableParagraph align=center style='margin-top:1.1pt;margin-right:
+  21.85pt;margin-bottom:0cm;margin-left:22.25pt;margin-bottom:.0001pt;
+  text-align:center'><span style='font-size:10.5pt;font-family:宋体'>岔路口校区</span></p>
+  </td>
+  <td width=140 valign=top style='width:104.75pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 0cm 0cm 0cm;height:15.55pt'>
+  <p class=TableParagraph align=center style='margin-top:1.4pt;margin-right:
+  19.35pt;margin-bottom:0cm;margin-left:19.8pt;margin-bottom:.0001pt;
+  text-align:center'><span lang=EN-US style='font-size:10.5pt'>26.28.0.0/20</span></p>
+  </td>
+  <td width=137 valign=top style='width:102.85pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 0cm 0cm 0cm;height:15.55pt'>
+  <p class=TableParagraph align=center style='margin-top:1.4pt;margin-right:
+  23.55pt;margin-bottom:0cm;margin-left:24.1pt;margin-bottom:.0001pt;
+  text-align:center'><span lang=EN-US style='font-size:10.5pt'>4096</span></p>
+  </td>
+  <td width=140 valign=top style='width:104.9pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 0cm 0cm 0cm;height:15.55pt'>
+  <p class=TableParagraph align=center style='margin-top:1.4pt;margin-right:
+  20.35pt;margin-bottom:0cm;margin-left:20.8pt;margin-bottom:.0001pt;
+  text-align:center'><span lang=EN-US style='font-size:10.5pt'>255.255.240.0</span></p>
+  </td>
+ </tr>
+ <tr style='height:15.55pt'>
+  <td width=137 valign=top style='width:102.4pt;border:solid black 1.0pt;
+  border-top:none;padding:0cm 0cm 0cm 0cm;height:15.55pt'>
+  <p class=TableParagraph align=center style='margin-top:1.1pt;margin-right:
+  21.85pt;margin-bottom:0cm;margin-left:22.15pt;margin-bottom:.0001pt;
+  text-align:center'><span style='font-size:10.5pt;font-family:宋体;letter-spacing:
+  -.05pt'>岔路口</span><span lang=EN-US style='font-size:10.5pt'>-</span><span
+  style='font-size:10.5pt;font-family:宋体'>标营</span></p>
+  </td>
+  <td width=140 valign=top style='width:104.75pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 0cm 0cm 0cm;height:15.55pt'>
+  <p class=TableParagraph align=center style='margin-top:1.4pt;margin-right:
+  19.35pt;margin-bottom:0cm;margin-left:19.8pt;margin-bottom:.0001pt;
+  text-align:center'><span lang=EN-US style='font-size:10.5pt'>26.28.16.0/20</span></p>
+  </td>
+  <td width=137 valign=top style='width:102.85pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 0cm 0cm 0cm;height:15.55pt'>
+  <p class=TableParagraph align=center style='margin-top:1.4pt;margin-right:
+  23.55pt;margin-bottom:0cm;margin-left:24.1pt;margin-bottom:.0001pt;
+  text-align:center'><span lang=EN-US style='font-size:10.5pt'>4096</span></p>
+  </td>
+  <td width=140 valign=top style='width:104.9pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 0cm 0cm 0cm;height:15.55pt'>
+  <p class=TableParagraph align=center style='margin-top:1.4pt;margin-right:
+  20.35pt;margin-bottom:0cm;margin-left:20.8pt;margin-bottom:.0001pt;
+  text-align:center'><span lang=EN-US style='font-size:10.5pt'>255.255.240.0</span></p>
+  </td>
+ </tr>
+ <tr style='height:15.7pt'>
+  <td width=137 valign=top style='width:102.4pt;border:solid black 1.0pt;
+  border-top:none;padding:0cm 0cm 0cm 0cm;height:15.7pt'>
+  <p class=TableParagraph align=center style='margin-top:1.25pt;margin-right:
+  21.85pt;margin-bottom:0cm;margin-left:22.25pt;margin-bottom:.0001pt;
+  text-align:center'><span style='font-size:10.5pt;font-family:宋体'>标营校区</span></p>
+  </td>
+  <td width=140 valign=top style='width:104.75pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 0cm 0cm 0cm;height:15.7pt'>
+  <p class=TableParagraph align=center style='margin-top:1.5pt;margin-right:
+  19.35pt;margin-bottom:0cm;margin-left:19.8pt;margin-bottom:.0001pt;
+  text-align:center'><span lang=EN-US style='font-size:10.5pt'>26.28.32.0/20</span></p>
+  </td>
+  <td width=137 valign=top style='width:102.85pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 0cm 0cm 0cm;height:15.7pt'>
+  <p class=TableParagraph align=center style='margin-top:1.5pt;margin-right:
+  23.55pt;margin-bottom:0cm;margin-left:24.1pt;margin-bottom:.0001pt;
+  text-align:center'><span lang=EN-US style='font-size:10.5pt'>4096</span></p>
+  </td>
+  <td width=140 valign=top style='width:104.9pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 0cm 0cm 0cm;height:15.7pt'>
+  <p class=TableParagraph align=center style='margin-top:1.5pt;margin-right:
+  20.35pt;margin-bottom:0cm;margin-left:20.8pt;margin-bottom:.0001pt;
+  text-align:center'><span lang=EN-US style='font-size:10.5pt'>255.255.240.0</span></p>
+  </td>
+ </tr>
+ <tr style='height:15.55pt'>
+  <td width=137 valign=top style='width:102.4pt;border:solid black 1.0pt;
+  border-top:none;padding:0cm 0cm 0cm 0cm;height:15.55pt'>
+  <p class=TableParagraph align=center style='margin-top:1.1pt;margin-right:
+  21.7pt;margin-bottom:0cm;margin-left:22.25pt;margin-bottom:.0001pt;
+  text-align:center'><span style='font-size:10.5pt;font-family:宋体'>标营</span><span
+  lang=EN-US style='font-size:10.5pt'>-</span><span style='font-size:10.5pt;
+  font-family:宋体'>中心</span></p>
+  </td>
+  <td width=140 valign=top style='width:104.75pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 0cm 0cm 0cm;height:15.55pt'>
+  <p class=TableParagraph align=center style='margin-top:1.4pt;margin-right:
+  19.35pt;margin-bottom:0cm;margin-left:19.8pt;margin-bottom:.0001pt;
+  text-align:center'><span lang=EN-US style='font-size:10.5pt'>26.28.48.0/20</span></p>
+  </td>
+  <td width=137 valign=top style='width:102.85pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 0cm 0cm 0cm;height:15.55pt'>
+  <p class=TableParagraph align=center style='margin-top:1.4pt;margin-right:
+  23.55pt;margin-bottom:0cm;margin-left:24.1pt;margin-bottom:.0001pt;
+  text-align:center'><span lang=EN-US style='font-size:10.5pt'>4096</span></p>
+  </td>
+  <td width=140 valign=top style='width:104.9pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 0cm 0cm 0cm;height:15.55pt'>
+  <p class=TableParagraph align=center style='margin-top:1.4pt;margin-right:
+  20.35pt;margin-bottom:0cm;margin-left:20.8pt;margin-bottom:.0001pt;
+  text-align:center'><span lang=EN-US style='font-size:10.5pt'>255.255.240.0</span></p>
+  </td>
+ </tr>
+ <tr style='height:15.55pt'>
+  <td width=137 valign=top style='width:102.4pt;border:solid black 1.0pt;
+  border-top:none;padding:0cm 0cm 0cm 0cm;height:15.55pt'>
+  <p class=TableParagraph align=center style='margin-top:1.1pt;margin-right:
+  21.85pt;margin-bottom:0cm;margin-left:22.25pt;margin-bottom:.0001pt;
+  text-align:center'><span style='font-size:10.5pt;font-family:宋体'>中心校区</span></p>
+  </td>
+  <td width=140 valign=top style='width:104.75pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 0cm 0cm 0cm;height:15.55pt'>
+  <p class=TableParagraph align=center style='margin-top:1.4pt;margin-right:
+  19.35pt;margin-bottom:0cm;margin-left:19.8pt;margin-bottom:.0001pt;
+  text-align:center'><span lang=EN-US style='font-size:10.5pt'>26.28.64.0/20</span></p>
+  </td>
+  <td width=137 valign=top style='width:102.85pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 0cm 0cm 0cm;height:15.55pt'>
+  <p class=TableParagraph align=center style='margin-top:1.4pt;margin-right:
+  23.55pt;margin-bottom:0cm;margin-left:24.1pt;margin-bottom:.0001pt;
+  text-align:center'><span lang=EN-US style='font-size:10.5pt'>4096</span></p>
+  </td>
+  <td width=140 valign=top style='width:104.9pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 0cm 0cm 0cm;height:15.55pt'>
+  <p class=TableParagraph align=center style='margin-top:1.4pt;margin-right:
+  20.35pt;margin-bottom:0cm;margin-left:20.8pt;margin-bottom:.0001pt;
+  text-align:center'><span lang=EN-US style='font-size:10.5pt'>255.255.240.0</span></p>
+  </td>
+ </tr>
+ <tr style='height:15.6pt'>
+  <td width=137 valign=top style='width:102.4pt;border:solid black 1.0pt;
+  border-top:none;padding:0cm 0cm 0cm 0cm;height:15.6pt'>
+  <p class=TableParagraph align=center style='margin-top:1.15pt;margin-right:
+  21.85pt;margin-bottom:0cm;margin-left:22.25pt;margin-bottom:.0001pt;
+  text-align:center'><span style='font-size:10.5pt;font-family:宋体'>中心</span><span
+  lang=EN-US style='font-size:10.5pt'>-</span><span style='font-size:10.5pt;
+  font-family:宋体'>双龙街</span></p>
+  </td>
+  <td width=140 valign=top style='width:104.75pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 0cm 0cm 0cm;height:15.6pt'>
+  <p class=TableParagraph align=center style='margin-top:1.4pt;margin-right:
+  19.35pt;margin-bottom:0cm;margin-left:19.8pt;margin-bottom:.0001pt;
+  text-align:center'><span lang=EN-US style='font-size:10.5pt'>26.28.80.0/20</span></p>
+  </td>
+  <td width=137 valign=top style='width:102.85pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 0cm 0cm 0cm;height:15.6pt'>
+  <p class=TableParagraph align=center style='margin-top:1.4pt;margin-right:
+  23.55pt;margin-bottom:0cm;margin-left:24.1pt;margin-bottom:.0001pt;
+  text-align:center'><span lang=EN-US style='font-size:10.5pt'>4096</span></p>
+  </td>
+  <td width=140 valign=top style='width:104.9pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 0cm 0cm 0cm;height:15.6pt'>
+  <p class=TableParagraph align=center style='margin-top:1.4pt;margin-right:
+  20.35pt;margin-bottom:0cm;margin-left:20.8pt;margin-bottom:.0001pt;
+  text-align:center'><span lang=EN-US style='font-size:10.5pt'>255.255.240.0</span></p>
+  </td>
+ </tr>
+ <tr style='height:15.55pt'>
+  <td width=137 valign=top style='width:102.4pt;border:solid black 1.0pt;
+  border-top:none;padding:0cm 0cm 0cm 0cm;height:15.55pt'>
+  <p class=TableParagraph align=center style='margin-top:1.1pt;margin-right:
+  21.85pt;margin-bottom:0cm;margin-left:22.25pt;margin-bottom:.0001pt;
+  text-align:center'><span style='font-size:10.5pt;font-family:宋体'>双龙街校区</span></p>
+  </td>
+  <td width=140 valign=top style='width:104.75pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 0cm 0cm 0cm;height:15.55pt'>
+  <p class=TableParagraph align=center style='margin-top:1.4pt;margin-right:
+  19.35pt;margin-bottom:0cm;margin-left:19.8pt;margin-bottom:.0001pt;
+  text-align:center'><span lang=EN-US style='font-size:10.5pt'>26.28.96.0/20</span></p>
+  </td>
+  <td width=137 valign=top style='width:102.85pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 0cm 0cm 0cm;height:15.55pt'>
+  <p class=TableParagraph align=center style='margin-top:1.4pt;margin-right:
+  23.55pt;margin-bottom:0cm;margin-left:24.1pt;margin-bottom:.0001pt;
+  text-align:center'><span lang=EN-US style='font-size:10.5pt'>4096</span></p>
+  </td>
+  <td width=140 valign=top style='width:104.9pt;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 0cm 0cm 0cm;height:15.55pt'>
+  <p class=TableParagraph align=center style='margin-top:1.4pt;margin-right:
+  20.35pt;margin-bottom:0cm;margin-left:20.8pt;margin-bottom:.0001pt;
+  text-align:center'><span lang=EN-US style='font-size:10.5pt'>255.255.240.0</span></p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoBodyText style='margin-top:.45pt'><span lang=EN-US
+style='font-size:10.0pt'>&nbsp;</span></p>
+
+<h3 style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:28.5pt;
+text-indent:-17.55pt;line-height:normal'><a name="_bookmark51"></a><span
+lang=EN-US style='font-size:14.0pt;font-family:"Times New Roman",serif'>3.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span>配置路由器及主机接口属性</h3>
+
+<p class=MsoBodyText style='margin-top:.45pt'><b><span lang=EN-US
+style='font-size:12.0pt'>&nbsp;</span></b></p>
+
+<p class=MsoBodyText style='margin-left:32.0pt'>按步骤<span lang=EN-US>2</span>的地址规划为每个主机和路由器配置接口属性，要求输出理工大学校园网具体设备地址规划。</p>
+
+<p class=MsoBodyText style='margin-left:32.0pt'><span lang=EN-US
+style='color:red'>&nbsp;</span></p>
+
+<p class=MsoBodyText style='margin-top:0cm;margin-right:0cm;margin-bottom:1.0pt;
+margin-left:144.7pt;text-align:justify;text-justify:inter-ideograph;line-height:
+11.95pt'><span style='color:red;letter-spacing:-1.35pt'>表 </span><span
+lang=EN-US style='font-family:"Calibri",sans-serif;color:red'>5-</span><span
+lang=EN-US style='font-family:"Calibri",sans-serif;color:red'>2</span><span
+lang=EN-US style='font-family:"Calibri",sans-serif;color:red;letter-spacing:
+.5pt'> </span><span style='color:red'>理工大学校园网具体设备地址规划</span></p>
+
+<p class=MsoBodyText style='margin-left:32.0pt'><span lang=EN-US
+style='color:red'>&nbsp;</span></p>
+
+<table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0 width="99%"
+ style='width:99.96%;border-collapse:collapse'>
+ <tr style='height:14.4pt'>
+  <td width="17%" valign=top style='width:17.2%;border:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;vertical-align:top'><b><span
+  style='font-size:10.5pt;color:red'>校区</span></b></p>
+  </td>
+  <td width="14%" valign=top style='width:14.46%;border:solid black 1.0pt;
+  border-left:none;padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;vertical-align:top'><b><span
+  style='font-size:10.5pt;color:red'>地址空间前缀</span></b></p>
+  </td>
+  <td width="16%" nowrap style='width:16.38%;border:solid black 1.0pt;
+  border-left:none;padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt'>
+  <p class=MsoNormal style='text-align:justify;text-justify:inter-ideograph;
+  vertical-align:middle'><b><span style='font-size:10.5pt;color:red'>子网掩码</span></b></p>
+  </td>
+  <td width="19%" valign=top style='width:19.24%;border:solid black 1.0pt;
+  border-left:none;padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt'>
+  <p class=MsoNormal style='vertical-align:top'><b><span style='font-size:10.5pt;
+  color:red'>设备</span></b></p>
+  </td>
+  <td width="14%" valign=top style='width:14.56%;border:solid black 1.0pt;
+  border-left:none;padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;vertical-align:top'><b><span
+  style='font-size:10.5pt;color:red'>连接接口</span></b></p>
+  </td>
+  <td width="18%" valign=top style='width:18.1%;border:solid black 1.0pt;
+  border-left:none;padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;vertical-align:top'><b><span
+  lang=EN-US style='font-size:10.5pt;font-family:"Times New Roman",serif;
+  color:red'>IP </span></b><span class=font21><span style='font-size:10.5pt;
+  color:red'>地址</span></span></p>
+  </td>
+ </tr>
+ <tr style='height:14.4pt'>
+  <td width="17%" valign=top style='width:17.2%;border:solid black 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;vertical-align:top'><span
+  style='font-size:10.5pt;color:red'>岔路口校区</span></p>
+  </td>
+  <td width="14%" valign=top style='width:14.46%;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;vertical-align:top'><span
+  lang=EN-US style='font-size:10.5pt;font-family:"Calibri",sans-serif;
+  color:red'>26.28.0.0/20</span></p>
+  </td>
+  <td width="16%" valign=top style='width:16.38%;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;vertical-align:top'><span
+  lang=EN-US style='font-size:10.5pt;font-family:"Calibri",sans-serif;
+  color:red'>255.255.240.0</span></p>
+  </td>
+  <td width="19%" valign=top style='width:19.24%;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt'>
+  <p class=MsoNormal style='vertical-align:top'><span lang=EN-US
+  style='font-size:10.5pt;font-family:"Times New Roman",serif;color:red'>PC0</span></p>
+  </td>
+  <td width="14%" valign=top style='width:14.56%;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;vertical-align:top'><span
+  lang=EN-US style='font-size:10.5pt;font-family:"Times New Roman",serif;
+  color:red'>&nbsp;</span></p>
+  </td>
+  <td width="18%" valign=top style='width:18.1%;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;vertical-align:top'><span
+  lang=EN-US style='font-size:10.5pt;font-family:"Times New Roman",serif;
+  color:red'>26.28.0.1</span></p>
+  </td>
+ </tr>
+ <tr style='height:14.4pt'>
+  <td width="17%" nowrap style='width:17.2%;border:solid black 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt'>
+  <p class=MsoNormal><span lang=EN-US style='font-size:11.0pt;color:red'>&nbsp;</span></p>
+  </td>
+  <td width="14%" nowrap style='width:14.46%;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:14.4pt'>
+  <p class=MsoNormal><span lang=EN-US style='font-size:11.0pt;color:red'>&nbsp;</span></p>
+  </td>
+  <td width="16%" nowrap style='width:16.38%;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:14.4pt'>
+  <p class=MsoNormal><span lang=EN-US style='font-size:11.0pt;color:red'>&nbsp;</span></p>
+  </td>
+  <td width="19%" valign=top style='width:19.24%;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt'>
+  <p class=MsoNormal style='vertical-align:top'><span lang=EN-US
+  style='font-size:10.5pt;font-family:"Times New Roman",serif;color:red'>PC1</span></p>
+  </td>
+  <td width="14%" valign=top style='width:14.56%;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;vertical-align:top'><span
+  lang=EN-US style='font-size:10.5pt;font-family:"Times New Roman",serif;
+  color:red'>&nbsp;</span></p>
+  </td>
+  <td width="18%" valign=top style='width:18.1%;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;vertical-align:top'><span
+  lang=EN-US style='font-size:10.5pt;font-family:"Calibri",sans-serif;
+  color:red'>26.28.0.2</span></p>
+  </td>
+ </tr>
+ <tr style='height:28.8pt'>
+  <td width="17%" nowrap style='width:17.2%;border:solid black 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:28.8pt'>
+  <p class=MsoNormal><span lang=EN-US style='font-size:11.0pt;color:red'>&nbsp;</span></p>
+  </td>
+  <td width="14%" nowrap style='width:14.46%;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:28.8pt'>
+  <p class=MsoNormal><span lang=EN-US style='font-size:11.0pt;color:red'>&nbsp;</span></p>
+  </td>
+  <td width="16%" nowrap style='width:16.38%;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:28.8pt'>
+  <p class=MsoNormal><span lang=EN-US style='font-size:11.0pt;color:red'>&nbsp;</span></p>
+  </td>
+  <td width="19%" valign=top style='width:19.24%;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:28.8pt'>
+  <p class=MsoNormal style='vertical-align:top'><span lang=EN-US
+  style='font-size:10.5pt;color:red'>ROUTER(</span><span style='font-size:10.5pt;
+  color:red'>岔路口校区<span lang=EN-US>)</span></span></p>
+  </td>
+  <td width="14%" valign=top style='width:14.56%;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:28.8pt'>
+  <p class=MsoNormal align=center style='text-align:center;vertical-align:top'><span
+  lang=EN-US style='font-size:10.5pt;font-family:"Times New Roman",serif;
+  color:red'>&nbsp;</span></p>
+  </td>
+  <td width="18%" valign=top style='width:18.1%;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:28.8pt'>
+  <p class=MsoNormal align=center style='text-align:center;vertical-align:top'><span
+  lang=EN-US style='font-size:10.5pt;font-family:"Calibri",sans-serif;
+  color:red'>26.28.0.3</span></p>
+  </td>
+ </tr>
+ <tr style='height:28.8pt'>
+  <td width="17%" valign=top style='width:17.2%;border:solid black 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:28.8pt'>
+  <p class=MsoNormal align=center style='text-align:center;vertical-align:top'><span
+  style='font-size:10.5pt;color:red'>岔路口</span><span class=font31><span
+  lang=EN-US style='font-size:10.5pt;color:red'>-</span></span><span
+  class=font01><span style='font-size:10.5pt;color:red'>标营</span></span></p>
+  </td>
+  <td width="14%" valign=top style='width:14.46%;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:28.8pt'>
+  <p class=MsoNormal align=center style='text-align:center;vertical-align:top'><span
+  lang=EN-US style='font-size:10.5pt;font-family:"Calibri",sans-serif;
+  color:red'>26.28.16.0/20</span></p>
+  </td>
+  <td width="16%" valign=top style='width:16.38%;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:28.8pt'>
+  <p class=MsoNormal align=center style='text-align:center;vertical-align:top'><span
+  lang=EN-US style='font-size:10.5pt;font-family:"Calibri",sans-serif;
+  color:red'>255.255.240.0</span></p>
+  </td>
+  <td width="19%" valign=top style='width:19.24%;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:28.8pt'>
+  <p class=MsoNormal style='vertical-align:top'><span lang=EN-US
+  style='font-size:10.5pt;color:red'>ROUTER(</span><span style='font-size:10.5pt;
+  color:red'>岔路口校区<span lang=EN-US>)</span></span></p>
+  </td>
+  <td width="14%" valign=top style='width:14.56%;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:28.8pt'>
+  <p class=MsoNormal align=center style='text-align:center;vertical-align:top'><span
+  lang=EN-US style='font-size:10.5pt;font-family:"Times New Roman",serif;
+  color:red'>&nbsp;</span></p>
+  </td>
+  <td width="18%" valign=top style='width:18.1%;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:28.8pt'>
+  <p class=MsoNormal align=center style='text-align:center;vertical-align:top'><span
+  lang=EN-US style='font-size:10.5pt;font-family:"Calibri",sans-serif;
+  color:red'>26.28.16.1</span></p>
+  </td>
+ </tr>
+ <tr style='height:28.8pt'>
+  <td width="17%" valign=top style='width:17.2%;border:solid black 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:28.8pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
+  style='font-size:10.5pt;color:red'>&nbsp;</span></p>
+  </td>
+  <td width="14%" valign=top style='width:14.46%;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:28.8pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
+  style='font-size:10.5pt;font-family:"Calibri",sans-serif;color:red'>&nbsp;</span></p>
+  </td>
+  <td width="16%" valign=top style='width:16.38%;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:28.8pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
+  style='font-size:10.5pt;font-family:"Calibri",sans-serif;color:red'>&nbsp;</span></p>
+  </td>
+  <td width="19%" valign=top style='width:19.24%;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:28.8pt'>
+  <p class=MsoNormal style='vertical-align:top'><span lang=EN-US
+  style='font-size:10.5pt;color:red'>ROUTER(</span><span style='font-size:10.5pt;
+  color:red'>标营校区<span lang=EN-US>)</span></span></p>
+  </td>
+  <td width="14%" valign=top style='width:14.56%;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:28.8pt'>
+  <p class=MsoNormal align=center style='text-align:center;vertical-align:top'><span
+  lang=EN-US style='font-size:10.5pt;font-family:"Times New Roman",serif;
+  color:red'>&nbsp;</span></p>
+  </td>
+  <td width="18%" valign=top style='width:18.1%;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:28.8pt'>
+  <p class=MsoNormal align=center style='text-align:center;vertical-align:top'><span
+  lang=EN-US style='font-size:10.5pt;font-family:"Calibri",sans-serif;
+  color:red'>26.28.16.2</span></p>
+  </td>
+ </tr>
+ <tr style='height:14.4pt'>
+  <td width="17%" valign=top style='width:17.2%;border:solid black 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;vertical-align:top'><span
+  style='font-size:10.5pt;color:red'>标营校区</span></p>
+  </td>
+  <td width="14%" valign=top style='width:14.46%;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;vertical-align:top'><span
+  lang=EN-US style='font-size:10.5pt;font-family:"Calibri",sans-serif;
+  color:red'>26.28.32.0/20</span></p>
+  </td>
+  <td width="16%" valign=top style='width:16.38%;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;vertical-align:top'><span
+  lang=EN-US style='font-size:10.5pt;font-family:"Calibri",sans-serif;
+  color:red'>255.255.240.0</span></p>
+  </td>
+  <td width="19%" valign=top style='width:19.24%;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt'>
+  <p class=MsoNormal style='vertical-align:top'><span lang=EN-US
+  style='font-size:10.5pt;font-family:"Times New Roman",serif;color:red'>PC2</span></p>
+  </td>
+  <td width="14%" valign=top style='width:14.56%;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;vertical-align:top'><span
+  lang=EN-US style='font-size:10.5pt;font-family:"Times New Roman",serif;
+  color:red'>&nbsp;</span></p>
+  </td>
+  <td width="18%" valign=top style='width:18.1%;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;vertical-align:top'><span
+  lang=EN-US style='font-size:10.5pt;font-family:"Calibri",sans-serif;
+  color:red'>26.28.32.1</span></p>
+  </td>
+ </tr>
+ <tr style='height:14.4pt'>
+  <td width="17%" nowrap style='width:17.2%;border:solid black 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt'>
+  <p class=MsoNormal><span lang=EN-US style='font-size:11.0pt;color:red'>&nbsp;</span></p>
+  </td>
+  <td width="14%" nowrap style='width:14.46%;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:14.4pt'>
+  <p class=MsoNormal><span lang=EN-US style='font-size:11.0pt;color:red'>&nbsp;</span></p>
+  </td>
+  <td width="16%" nowrap style='width:16.38%;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:14.4pt'>
+  <p class=MsoNormal><span lang=EN-US style='font-size:11.0pt;color:red'>&nbsp;</span></p>
+  </td>
+  <td width="19%" valign=top style='width:19.24%;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt'>
+  <p class=MsoNormal style='vertical-align:top'><span lang=EN-US
+  style='font-size:10.5pt;font-family:"Times New Roman",serif;color:red'>PC3</span></p>
+  </td>
+  <td width="14%" valign=top style='width:14.56%;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;vertical-align:top'><span
+  lang=EN-US style='font-size:10.5pt;font-family:"Times New Roman",serif;
+  color:red'>&nbsp;</span></p>
+  </td>
+  <td width="18%" valign=top style='width:18.1%;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;vertical-align:top'><span
+  lang=EN-US style='font-size:10.5pt;font-family:"Calibri",sans-serif;
+  color:red'>26.28.32.2</span></p>
+  </td>
+ </tr>
+ <tr style='height:42.6pt'>
+  <td width="17%" nowrap style='width:17.2%;border:solid black 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:42.6pt'>
+  <p class=MsoNormal><span lang=EN-US style='font-size:11.0pt;color:red'>&nbsp;</span></p>
+  </td>
+  <td width="14%" nowrap style='width:14.46%;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:42.6pt'>
+  <p class=MsoNormal><span lang=EN-US style='font-size:11.0pt;color:red'>&nbsp;</span></p>
+  </td>
+  <td width="16%" nowrap style='width:16.38%;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:42.6pt'>
+  <p class=MsoNormal><span lang=EN-US style='font-size:11.0pt;color:red'>&nbsp;</span></p>
+  </td>
+  <td width="19%" valign=top style='width:19.24%;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:42.6pt'>
+  <p class=MsoNormal style='vertical-align:top'><span lang=EN-US
+  style='font-size:10.5pt;color:red'>ROUTER(</span><span style='font-size:10.5pt;
+  color:red'>标营校区<span lang=EN-US>)</span></span></p>
+  </td>
+  <td width="14%" valign=top style='width:14.56%;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:42.6pt'>
+  <p class=MsoNormal align=center style='text-align:center;vertical-align:top'><span
+  lang=EN-US style='font-size:10.5pt;font-family:"Times New Roman",serif;
+  color:red'>&nbsp;</span></p>
+  </td>
+  <td width="18%" valign=top style='width:18.1%;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:42.6pt'>
+  <p class=MsoNormal align=center style='text-align:center;vertical-align:top'><span
+  lang=EN-US style='font-size:10.5pt;font-family:"Calibri",sans-serif;
+  color:red'>26.28.32.3</span></p>
+  </td>
+ </tr>
+ <tr style='height:28.8pt'>
+  <td width="17%" valign=top style='width:17.2%;border:solid black 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:28.8pt'>
+  <p class=MsoNormal align=center style='text-align:center;vertical-align:top'><span
+  style='font-size:10.5pt;color:red'>标营</span><span class=font31><span
+  lang=EN-US style='font-size:10.5pt;color:red'>-</span></span><span
+  class=font01><span style='font-size:10.5pt;color:red'>中心</span></span></p>
+  </td>
+  <td width="14%" valign=top style='width:14.46%;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:28.8pt'>
+  <p class=MsoNormal align=center style='text-align:center;vertical-align:top'><span
+  lang=EN-US style='font-size:10.5pt;font-family:"Calibri",sans-serif;
+  color:red'>26.28.48.0/20</span></p>
+  </td>
+  <td width="16%" valign=top style='width:16.38%;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:28.8pt'>
+  <p class=MsoNormal align=center style='text-align:center;vertical-align:top'><span
+  lang=EN-US style='font-size:10.5pt;font-family:"Calibri",sans-serif;
+  color:red'>255.255.240.0</span></p>
+  </td>
+  <td width="19%" valign=top style='width:19.24%;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:28.8pt'>
+  <p class=MsoNormal style='vertical-align:top'><span lang=EN-US
+  style='font-size:10.5pt;color:red'>ROUTER(</span><span style='font-size:10.5pt;
+  color:red'>标营校区<span lang=EN-US>)</span></span></p>
+  </td>
+  <td width="14%" valign=top style='width:14.56%;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:28.8pt'>
+  <p class=MsoNormal align=center style='text-align:center;vertical-align:top'><span
+  lang=EN-US style='font-size:10.5pt;font-family:"Times New Roman",serif;
+  color:red'>&nbsp;</span></p>
+  </td>
+  <td width="18%" valign=top style='width:18.1%;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:28.8pt'>
+  <p class=MsoNormal align=center style='text-align:center;vertical-align:top'><span
+  lang=EN-US style='font-size:10.5pt;font-family:"Calibri",sans-serif;
+  color:red'>26.28.48.1</span></p>
+  </td>
+ </tr>
+ <tr style='height:28.8pt'>
+  <td width="17%" nowrap style='width:17.2%;border:solid black 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:28.8pt'>
+  <p class=MsoNormal><span lang=EN-US style='font-size:11.0pt;color:red'>&nbsp;</span></p>
+  </td>
+  <td width="14%" nowrap style='width:14.46%;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:28.8pt'>
+  <p class=MsoNormal><span lang=EN-US style='font-size:11.0pt;color:red'>&nbsp;</span></p>
+  </td>
+  <td width="16%" nowrap style='width:16.38%;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:28.8pt'>
+  <p class=MsoNormal><span lang=EN-US style='font-size:11.0pt;color:red'>&nbsp;</span></p>
+  </td>
+  <td width="19%" valign=top style='width:19.24%;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:28.8pt'>
+  <p class=MsoNormal style='vertical-align:top'><span lang=EN-US
+  style='font-size:10.5pt;color:red'>ROUTER(</span><span style='font-size:10.5pt;
+  color:red'>中心校区<span lang=EN-US>)</span></span></p>
+  </td>
+  <td width="14%" valign=top style='width:14.56%;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:28.8pt'>
+  <p class=MsoNormal align=center style='text-align:center;vertical-align:top'><span
+  lang=EN-US style='font-size:10.5pt;font-family:"Times New Roman",serif;
+  color:red'>&nbsp;</span></p>
+  </td>
+  <td width="18%" valign=top style='width:18.1%;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:28.8pt'>
+  <p class=MsoNormal align=center style='text-align:center;vertical-align:top'><span
+  lang=EN-US style='font-size:10.5pt;font-family:"Calibri",sans-serif;
+  color:red'>26.28.48.2</span></p>
+  </td>
+ </tr>
+ <tr style='height:14.4pt'>
+  <td width="17%" valign=top style='width:17.2%;border:solid black 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;vertical-align:top'><span
+  style='font-size:10.5pt;color:red'>中心校区</span></p>
+  </td>
+  <td width="14%" valign=top style='width:14.46%;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;vertical-align:top'><span
+  lang=EN-US style='font-size:10.5pt;font-family:"Calibri",sans-serif;
+  color:red'>26.28.64.0/20</span></p>
+  </td>
+  <td width="16%" valign=top style='width:16.38%;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;vertical-align:top'><span
+  lang=EN-US style='font-size:10.5pt;font-family:"Calibri",sans-serif;
+  color:red'>255.255.240.0</span></p>
+  </td>
+  <td width="19%" nowrap style='width:19.24%;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:14.4pt'>
+  <p class=MsoNormal style='vertical-align:middle'><span lang=EN-US
+  style='font-size:11.0pt;color:red'>web</span><span style='font-size:11.0pt;
+  color:red'>服务器</span></p>
+  </td>
+  <td width="14%" valign=top style='width:14.56%;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;vertical-align:top'><span
+  lang=EN-US style='font-size:10.5pt;font-family:"Times New Roman",serif;
+  color:red'>&nbsp;</span></p>
+  </td>
+  <td width="18%" valign=top style='width:18.1%;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;vertical-align:top'><span
+  lang=EN-US style='font-size:10.5pt;font-family:"Calibri",sans-serif;
+  color:red'>26.28.64.1</span></p>
+  </td>
+ </tr>
+ <tr style='height:42.6pt'>
+  <td width="17%" valign=top style='width:17.2%;border:solid black 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:42.6pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
+  style='font-size:10.5pt;color:red'>&nbsp;</span></p>
+  </td>
+  <td width="14%" valign=top style='width:14.46%;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:42.6pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
+  style='font-size:10.5pt;font-family:"Calibri",sans-serif;color:red'>&nbsp;</span></p>
+  </td>
+  <td width="16%" valign=top style='width:16.38%;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:42.6pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
+  style='font-size:10.5pt;font-family:"Calibri",sans-serif;color:red'>&nbsp;</span></p>
+  </td>
+  <td width="19%" valign=top style='width:19.24%;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:42.6pt'>
+  <p class=MsoNormal style='vertical-align:top'><span lang=EN-US
+  style='font-size:10.5pt;color:red'>ROUTER(</span><span style='font-size:10.5pt;
+  color:red'>中心校区<span lang=EN-US>)</span></span></p>
+  </td>
+  <td width="14%" valign=top style='width:14.56%;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:42.6pt'>
+  <p class=MsoNormal align=center style='text-align:center;vertical-align:top'><span
+  lang=EN-US style='font-size:10.5pt;font-family:"Times New Roman",serif;
+  color:red'>&nbsp;</span></p>
+  </td>
+  <td width="18%" valign=top style='width:18.1%;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:42.6pt'>
+  <p class=MsoNormal align=center style='text-align:center;vertical-align:top'><span
+  lang=EN-US style='font-size:10.5pt;font-family:"Calibri",sans-serif;
+  color:red'>26.28.64.2</span></p>
+  </td>
+ </tr>
+ <tr style='height:28.8pt'>
+  <td width="17%" valign=top style='width:17.2%;border:solid black 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:28.8pt'>
+  <p class=MsoNormal align=center style='text-align:center;vertical-align:top'><span
+  style='font-size:10.5pt;color:red'>中心</span><span class=font31><span
+  lang=EN-US style='font-size:10.5pt;color:red'>-</span></span><span
+  class=font01><span style='font-size:10.5pt;color:red'>双龙街</span></span></p>
+  </td>
+  <td width="14%" valign=top style='width:14.46%;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:28.8pt'>
+  <p class=MsoNormal align=center style='text-align:center;vertical-align:top'><span
+  lang=EN-US style='font-size:10.5pt;font-family:"Calibri",sans-serif;
+  color:red'>26.28.80.0/20</span></p>
+  </td>
+  <td width="16%" valign=top style='width:16.38%;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:28.8pt'>
+  <p class=MsoNormal align=center style='text-align:center;vertical-align:top'><span
+  lang=EN-US style='font-size:10.5pt;font-family:"Calibri",sans-serif;
+  color:red'>255.255.240.0</span></p>
+  </td>
+  <td width="19%" valign=top style='width:19.24%;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:28.8pt'>
+  <p class=MsoNormal style='vertical-align:top'><span lang=EN-US
+  style='font-size:10.5pt;color:red'>ROUTER(</span><span style='font-size:10.5pt;
+  color:red'>中心校区<span lang=EN-US>)</span></span></p>
+  </td>
+  <td width="14%" valign=top style='width:14.56%;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:28.8pt'>
+  <p class=MsoNormal align=center style='text-align:center;vertical-align:top'><span
+  lang=EN-US style='font-size:10.5pt;font-family:"Times New Roman",serif;
+  color:red'>&nbsp;</span></p>
+  </td>
+  <td width="18%" valign=top style='width:18.1%;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:28.8pt'>
+  <p class=MsoNormal align=center style='text-align:center;vertical-align:top'><span
+  lang=EN-US style='font-size:10.5pt;font-family:"Calibri",sans-serif;
+  color:red'>26.28.80.2</span></p>
+  </td>
+ </tr>
+ <tr style='height:28.8pt'>
+  <td width="17%" valign=top style='width:17.2%;border:solid black 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:28.8pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
+  style='font-size:10.5pt;color:red'>&nbsp;</span></p>
+  </td>
+  <td width="14%" valign=top style='width:14.46%;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:28.8pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
+  style='font-size:10.5pt;font-family:"Calibri",sans-serif;color:red'>&nbsp;</span></p>
+  </td>
+  <td width="16%" valign=top style='width:16.38%;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:28.8pt'>
+  <p class=MsoNormal align=center style='text-align:center'><span lang=EN-US
+  style='font-size:10.5pt;font-family:"Calibri",sans-serif;color:red'>&nbsp;</span></p>
+  </td>
+  <td width="19%" valign=top style='width:19.24%;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:28.8pt'>
+  <p class=MsoNormal style='vertical-align:top'><span lang=EN-US
+  style='font-size:10.5pt;color:red'>ROUTER(</span><span style='font-size:10.5pt;
+  color:red'>双龙街校区<span lang=EN-US>)</span></span></p>
+  </td>
+  <td width="14%" valign=top style='width:14.56%;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:28.8pt'>
+  <p class=MsoNormal align=center style='text-align:center;vertical-align:top'><span
+  lang=EN-US style='font-size:10.5pt;font-family:"Times New Roman",serif;
+  color:red'>&nbsp;</span></p>
+  </td>
+  <td width="18%" valign=top style='width:18.1%;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:28.8pt'>
+  <p class=MsoNormal align=center style='text-align:center;vertical-align:top'><span
+  lang=EN-US style='font-size:10.5pt;font-family:"Calibri",sans-serif;
+  color:red'>26.28.80.1</span></p>
+  </td>
+ </tr>
+ <tr style='height:14.4pt'>
+  <td width="17%" valign=top style='width:17.2%;border:solid black 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;vertical-align:top'><span
+  style='font-size:10.5pt;color:red'>双龙街校区</span></p>
+  </td>
+  <td width="14%" valign=top style='width:14.46%;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;vertical-align:top'><span
+  lang=EN-US style='font-size:10.5pt;font-family:"Calibri",sans-serif;
+  color:red'>26.28.96.0/20</span></p>
+  </td>
+  <td width="16%" valign=top style='width:16.38%;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;vertical-align:top'><span
+  lang=EN-US style='font-size:10.5pt;font-family:"Calibri",sans-serif;
+  color:red'>255.255.240.0</span></p>
+  </td>
+  <td width="19%" valign=top style='width:19.24%;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt'>
+  <p class=MsoNormal style='vertical-align:top'><span lang=EN-US
+  style='font-size:10.5pt;font-family:"Times New Roman",serif;color:red'>PC4</span></p>
+  </td>
+  <td width="14%" valign=top style='width:14.56%;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;vertical-align:top'><span
+  lang=EN-US style='font-size:10.5pt;font-family:"Times New Roman",serif;
+  color:red'>&nbsp;</span></p>
+  </td>
+  <td width="18%" valign=top style='width:18.1%;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;vertical-align:top'><span
+  lang=EN-US style='font-size:10.5pt;font-family:"Calibri",sans-serif;
+  color:red'>26.28.96.1</span></p>
+  </td>
+ </tr>
+ <tr style='height:14.4pt'>
+  <td width="17%" nowrap style='width:17.2%;border:solid black 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt'>
+  <p class=MsoNormal><span lang=EN-US style='font-size:11.0pt;color:red'>&nbsp;</span></p>
+  </td>
+  <td width="14%" nowrap style='width:14.46%;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:14.4pt'>
+  <p class=MsoNormal><span lang=EN-US style='font-size:11.0pt;color:red'>&nbsp;</span></p>
+  </td>
+  <td width="16%" nowrap style='width:16.38%;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:14.4pt'>
+  <p class=MsoNormal><span lang=EN-US style='font-size:11.0pt;color:red'>&nbsp;</span></p>
+  </td>
+  <td width="19%" valign=top style='width:19.24%;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt'>
+  <p class=MsoNormal style='vertical-align:top'><span lang=EN-US
+  style='font-size:10.5pt;font-family:"Times New Roman",serif;color:red'>PC5</span></p>
+  </td>
+  <td width="14%" valign=top style='width:14.56%;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;vertical-align:top'><span
+  lang=EN-US style='font-size:10.5pt;font-family:"Times New Roman",serif;
+  color:red'>&nbsp;</span></p>
+  </td>
+  <td width="18%" valign=top style='width:18.1%;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:14.4pt'>
+  <p class=MsoNormal align=center style='text-align:center;vertical-align:top'><span
+  lang=EN-US style='font-size:10.5pt;font-family:"Calibri",sans-serif;
+  color:red'>26.28.96.2</span></p>
+  </td>
+ </tr>
+ <tr style='height:28.8pt'>
+  <td width="17%" nowrap style='width:17.2%;border:solid black 1.0pt;
+  border-top:none;padding:0cm 5.4pt 0cm 5.4pt;height:28.8pt'>
+  <p class=MsoNormal><span lang=EN-US style='font-size:11.0pt;color:red'>&nbsp;</span></p>
+  </td>
+  <td width="14%" nowrap style='width:14.46%;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:28.8pt'>
+  <p class=MsoNormal><span lang=EN-US style='font-size:11.0pt;color:red'>&nbsp;</span></p>
+  </td>
+  <td width="16%" nowrap style='width:16.38%;border-top:none;border-left:none;
+  border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:28.8pt'>
+  <p class=MsoNormal><span lang=EN-US style='font-size:11.0pt;color:red'>&nbsp;</span></p>
+  </td>
+  <td width="19%" valign=top style='width:19.24%;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:28.8pt'>
+  <p class=MsoNormal style='vertical-align:top'><span lang=EN-US
+  style='font-size:10.5pt;color:red'>ROUTER(</span><span style='font-size:10.5pt;
+  color:red'>双龙街校区<span lang=EN-US>)</span></span></p>
+  </td>
+  <td width="14%" valign=top style='width:14.56%;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:28.8pt'>
+  <p class=MsoNormal align=center style='text-align:center;vertical-align:top'><span
+  lang=EN-US style='font-size:10.5pt;font-family:"Times New Roman",serif;
+  color:red'>&nbsp;</span></p>
+  </td>
+  <td width="18%" valign=top style='width:18.1%;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:28.8pt'>
+  <p class=MsoNormal align=center style='text-align:center;vertical-align:top'><span
+  lang=EN-US style='font-size:10.5pt;font-family:"Calibri",sans-serif;
+  color:red'>26.28.96.3</span></p>
+  </td>
+ </tr>
+</table>
+
+<h3 align=center style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;
+margin-left:28.5pt;text-align:center;text-indent:-17.55pt;line-height:normal'><span
+lang=EN-US style='font-size:14.0pt;font-family:"Times New Roman",serif'>4.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='letter-spacing:.05pt'>配置路由器的接口 </span><span lang=EN-US style='font-family:
+"Times New Roman",serif'>IP</span><span lang=EN-US style='font-family:"Times New Roman",serif;
+letter-spacing:3.7pt'> </span>地址 <span lang=EN-US><img width=590 height=165
+id="图片 7" src="blog3.files/image002.png">&nbsp;<img width=590 height=190
+id="图片 8" src="blog3.files/image003.png">&nbsp;<img width=590 height=189
+id="图片 9" src="blog3.files/image004.png">&nbsp;<img width=590 height=192
+id="图片 10" src="blog3.files/image005.png"></span></h3>
+
+<h3 style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:28.5pt;
+text-indent:-17.55pt;line-height:normal'><a name="_bookmark52"></a><span
+lang=EN-US style='font-size:14.0pt;font-family:"Times New Roman",serif'>5.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span>配置静态路由</h3>
+
+</div>
+
+<span lang=EN-US style='font-size:13.5pt;font-family:宋体'><br clear=all
+style='page-break-before:auto'>
+</span>
+
+<div class=WordSection7></div>
+
+<span lang=EN-US style='font-size:10.0pt;font-family:宋体'><br clear=all
+style='page-break-before:always'>
+</span>
+
+<div class=WordSection8>
+
+<p class=MsoBodyText style='margin-top:.05pt'><a name="_bookmark53"></a><span
+lang=EN-US style='font-size:9.5pt'>&nbsp;</span></p>
+
+<p class=MsoBodyText style='margin-top:5.25pt;margin-right:15.55pt;margin-bottom:
+0cm;margin-left:11.0pt;margin-bottom:.0001pt;text-indent:20.95pt;line-height:
+138%'><span style='letter-spacing:-.55pt'>配置的结果如下：</span><span
+style='letter-spacing:-.15pt'>（</span>用<span style='letter-spacing:-2.65pt'> </span><span
+lang=EN-US style='font-family:"Calibri",sans-serif'>I<span style='letter-spacing:
+-.05pt'>n</span><span style='letter-spacing:-.1pt'>s</span><span
+style='letter-spacing:-.05pt'>pec</span>t<span style='letter-spacing:.15pt'> </span></span><span
+style='letter-spacing:-.15pt'>查看岔路口校区路由器的路由表</span>）</p>
+
+<p class=MsoBodyText style='margin-top:5.25pt;margin-right:15.55pt;margin-bottom:
+0cm;margin-left:11.0pt;margin-bottom:.0001pt;text-indent:20.95pt;line-height:
+138%'><span style='color:red'>请参考如下参考图示，将下图替换成实际的路由表截图</span></p>
+
+<p class=MsoBodyText align=center style='margin-top:5.25pt;margin-right:15.55pt;
+margin-bottom:0cm;margin-left:11.0pt;margin-bottom:.0001pt;text-align:center;
+text-indent:20.95pt;line-height:138%'><span lang=EN-US><img width=590
+height=216 id="图片 1" src="blog3.files/image006.png"></span></p>
+
+<p class=MsoBodyText style='margin-top:.35pt'><span lang=EN-US
+style='font-size:7.5pt;color:red'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-top:0cm;margin-right:32.05pt;
+margin-bottom:0cm;margin-left:27.15pt;margin-bottom:.0001pt;text-align:center'><span
+style='font-size:10.0pt;letter-spacing:-.5pt'>图<span lang=EN-US> 12 </span>岔路口校区路由表</span></p>
+
+<p class=MsoBodyText style='margin-top:.4pt'><span lang=EN-US style='font-size:
+8.0pt'>&nbsp;</span></p>
+
+<p class=MsoListParagraph style='margin-top:5.3pt;margin-right:0cm;margin-bottom:
+0cm;margin-left:57.6pt;margin-bottom:.0001pt;text-indent:-25.65pt'><span
+lang=EN-US style='font-size:9.5pt;letter-spacing:-.05pt'>（c）<span
+style='font:7.0pt "Times New Roman"'> </span></span><span style='font-size:
+10.5pt;letter-spacing:-.2pt'>按照类似的方式，配置标营校区路由器的静态路由如图 </span><span lang=EN-US
+style='font-size:10.5pt;font-family:"Calibri",sans-serif'>13<span
+style='letter-spacing:.3pt'> </span></span><span style='font-size:10.5pt'>所示。</span></p>
+
+<p class=MsoBodyText style='margin-top:5.25pt;margin-right:15.55pt;margin-bottom:
+0cm;margin-left:11.0pt;margin-bottom:.0001pt;text-indent:20.95pt;line-height:
+138%'><span style='color:red'>【请参考如下参考图示，将下图替换成实际的路由表截图】</span></p>
+
+<p class=MsoBodyText style='margin-top:.1pt'><span lang=EN-US style='font-size:
+3.5pt'>&nbsp;</span></p>
+
+<p class=MsoBodyText align=center style='margin-top:.15pt;text-align:center'><span
+lang=EN-US><img width=590 height=230 id="图片 3" src="blog3.files/image007.png"></span></p>
+
+<p class=MsoNormal align=center style='margin-top:0cm;margin-right:32.05pt;
+margin-bottom:0cm;margin-left:27.15pt;margin-bottom:.0001pt;text-align:center'><span
+style='font-size:10.0pt;letter-spacing:-.5pt'>图 </span><span lang=EN-US
+style='font-size:10.0pt;font-family:"Times New Roman",serif'>13</span><span
+lang=EN-US style='font-size:10.0pt;font-family:"Times New Roman",serif;
+letter-spacing:5.3pt'> </span><span style='font-size:10.0pt'>标营校区路由器路由表</span></p>
+
+<p class=MsoBodyText style='margin-top:.35pt'><span lang=EN-US
+style='font-size:8.0pt'>&nbsp;</span></p>
+
+<p class=MsoListParagraph style='margin-left:58.7pt;text-indent:-26.75pt'><span
+lang=EN-US style='font-size:9.5pt;letter-spacing:-.05pt'>（d）<span
+style='font:7.0pt "Times New Roman"'> </span></span><span style='font-size:
+10.5pt;letter-spacing:-.2pt'>按照类似的方式，配置中心校区路由器的静态路由如图 </span><span lang=EN-US
+style='font-size:10.5pt;font-family:"Calibri",sans-serif'>14<span
+style='letter-spacing:.3pt'> </span></span><span style='font-size:10.5pt'>所示。</span></p>
+
+<p class=MsoNormal><span lang=EN-US style='font-size:10.5pt'>&nbsp;</span></p>
+
+<p class=MsoBodyText style='margin-top:5.25pt;margin-right:15.55pt;margin-bottom:
+0cm;margin-left:11.0pt;margin-bottom:.0001pt;text-indent:20.95pt;line-height:
+138%'><span style='color:red'>【请参考如下参考图示，将下图替换成实际的路由表截图】</span></p>
+
+</div>
+
+<span lang=EN-US style='font-size:10.5pt;font-family:宋体'><br clear=all
+style='page-break-before:always'>
+</span>
+
+<div class=WordSection9>
+
+<p class=MsoBodyText align=center style='text-align:center'><span lang=EN-US><img
+width=590 height=226 id="图片 4" src="blog3.files/image008.png"></span></p>
+
+<p class=MsoBodyText style='margin-top:.05pt'><span lang=EN-US
+style='font-size:9.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-top:3.9pt;margin-right:31.9pt;
+margin-bottom:0cm;margin-left:27.15pt;margin-bottom:.0001pt;text-align:center'><span
+style='font-size:10.0pt;letter-spacing:-.3pt'>图 </span><span lang=EN-US
+style='font-size:10.0pt;font-family:"Times New Roman",serif'>14<span
+style='letter-spacing:1.95pt'> </span></span><span style='font-size:10.0pt'>中心校区路由器路由表</span></p>
+
+<p class=MsoBodyText style='margin-top:.3pt'><span lang=EN-US style='font-size:
+8.0pt'>&nbsp;</span></p>
+
+<p class=MsoListParagraph style='margin-left:58.45pt;text-indent:-26.5pt'><span
+lang=EN-US style='font-size:9.5pt;letter-spacing:-.05pt'>（e）<span
+style='font:7.0pt "Times New Roman"'> </span></span><span style='font-size:
+10.5pt;letter-spacing:-.15pt'>按照类似的方式，配置双龙街校区路由器的静态路由如图 </span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri",sans-serif'>15<span
+style='letter-spacing:.15pt'> </span></span><span style='font-size:10.5pt'>所示。</span></p>
+
+<p class=MsoBodyText style='margin-top:5.25pt;margin-right:15.55pt;margin-bottom:
+0cm;margin-left:11.0pt;margin-bottom:.0001pt;text-indent:20.95pt;line-height:
+138%'><span style='color:red'>【请参考如下参考图示，将下图替换成实际的路由表截图】</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span lang=EN-US><img
+width=590 height=234 id="图片 5" src="blog3.files/image009.png"></span></p>
+
+<p class=MsoBodyText style='margin-top:.05pt'><span lang=EN-US
+style='font-size:3.5pt'>&nbsp;</span></p>
+
+<p class=MsoBodyText style='margin-top:.25pt'><span lang=EN-US
+style='font-size:8.5pt'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-top:.05pt;margin-right:32.05pt;
+margin-bottom:0cm;margin-left:27.15pt;margin-bottom:.0001pt;text-align:center'><span
+style='font-size:10.0pt;letter-spacing:-.2pt'>图 </span><span lang=EN-US
+style='font-size:10.0pt;font-family:"Times New Roman",serif'>15<span
+style='letter-spacing:2.05pt'> </span></span><span style='font-size:10.0pt'>双龙街校区路由器路由表</span></p>
+
+<p class=MsoBodyText style='margin-top:.45pt'><span lang=EN-US
+style='font-size:10.0pt'>&nbsp;</span></p>
+
+<h3 style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:28.5pt;
+text-indent:-17.55pt;line-height:normal'><a name="_bookmark54"></a><span
+lang=EN-US style='font-size:14.0pt;font-family:"Times New Roman",serif'>6.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span>测试主机之间的连通性</h3>
+
+<p class=MsoBodyText style='margin-top:.45pt'><b><span lang=EN-US
+style='font-size:12.0pt'>&nbsp;</span></b></p>
+
+<p class=MsoBodyText style='margin-top:0cm;margin-right:15.55pt;margin-bottom:
+.15pt;margin-left:11.0pt;text-align:justify;text-justify:inter-ideograph;
+text-indent:20.95pt;line-height:138%'><span style='letter-spacing:-.1pt'>（</span><span
+lang=EN-US style='font-family:"Calibri",sans-serif;letter-spacing:-.1pt'>a</span><span
+style='letter-spacing:-.1pt'>）</span><span style='letter-spacing:-.55pt'>首先，采用 </span><span
+lang=EN-US style='font-family:"Calibri",sans-serif;letter-spacing:-.05pt'>ping</span><span
+lang=EN-US style='font-family:"Calibri",sans-serif;letter-spacing:.2pt'> </span><span
+style='letter-spacing:-.05pt'>命令测试任意两台计算机之间的连通性，在位于岔路口校区子网</span><span
+style='letter-spacing:-1.4pt'>的 </span><span lang=EN-US style='font-family:
+"Calibri",sans-serif;letter-spacing:-.1pt'>PC0</span><span lang=EN-US
+style='font-family:"Calibri",sans-serif;letter-spacing:.3pt'> </span><span
+style='letter-spacing:-.3pt'>上向位于双龙街校区子网的 </span><span lang=EN-US
+style='font-family:"Calibri",sans-serif;letter-spacing:-.1pt'>PC5</span><span
+lang=EN-US style='font-family:"Calibri",sans-serif;letter-spacing:.3pt'> </span><span
+style='letter-spacing:-.95pt'>发起 </span><span lang=EN-US style='font-family:
+"Calibri",sans-serif;letter-spacing:-.1pt'>ping</span><span lang=EN-US
+style='font-family:"Calibri",sans-serif;letter-spacing:.1pt'> </span><span
+style='letter-spacing:-.65pt'>测量，图 </span><span lang=EN-US style='font-family:
+"Calibri",sans-serif;letter-spacing:-.1pt'>16</span><span lang=EN-US
+style='font-family:"Calibri",sans-serif;letter-spacing:.15pt'> </span><span
+style='letter-spacing:-.1pt'>显示了测量结果，可见经过在</span>各个路由器上配置静态路由，位于不同子网内的主机之间已经能够正常通信。</p>
+
+<p class=MsoBodyText align=center style='text-align:center'><span lang=EN-US
+style='font-size:10.0pt'><img width=590 height=525 id="图片 12"
+src="blog3.files/image010.png"></span></p>
+
+<p class=MsoBodyText style='margin-top:.15pt'><span lang=EN-US
+style='font-size:8.5pt'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-top:0cm;margin-right:32.05pt;
+margin-bottom:0cm;margin-left:27.15pt;margin-bottom:.0001pt;text-align:center'><span
+style='font-size:10.0pt;letter-spacing:-.55pt'>图 </span><span lang=EN-US
+style='font-size:10.0pt;font-family:"Times New Roman",serif'>16</span><span
+lang=EN-US style='font-size:10.0pt;font-family:"Times New Roman",serif;
+letter-spacing:5.05pt'> </span><span style='font-size:10.0pt;letter-spacing:
+-.15pt'>不同子网内主机间 </span><span lang=EN-US style='font-size:10.0pt;font-family:
+"Times New Roman",serif'>ping<span style='letter-spacing:1.25pt'> </span></span><span
+style='font-size:10.0pt'>测量结果</span></p>
+
+<p class=MsoBodyText style='margin-top:.3pt'><span lang=EN-US style='font-size:
+8.0pt'>&nbsp;</span></p>
+
+<p class=MsoBodyText style='margin-left:37.3pt'><span style='letter-spacing:
+-.05pt'>（</span><span lang=EN-US style='font-family:"Calibri",sans-serif;
+letter-spacing:-.05pt'>b</span><span style='letter-spacing:-.05pt'>）</span><span
+style='letter-spacing:-.2pt'>其次，通过浏览器测试主机到中心校区子网内 </span><span lang=EN-US
+style='font-family:"Calibri",sans-serif'>Web<span style='letter-spacing:.35pt'>
+</span></span><span style='letter-spacing:-.25pt'>服务器的连通性。双击 </span><span
+lang=EN-US style='font-family:"Calibri",sans-serif'>Web</span></p>
+
+<p class=MsoBodyText style='margin-top:5.25pt;margin-right:0cm;margin-bottom:
+0cm;margin-left:11.0pt;margin-bottom:.0001pt'><span style='letter-spacing:-.35pt'>服务器主机，在
+</span><span lang=EN-US style='font-family:"Calibri",sans-serif'>Config<span
+style='letter-spacing:.2pt'> </span></span><span style='letter-spacing:.3pt'>窗口内，查看</span><span
+lang=EN-US style='font-family:"Calibri",sans-serif'>http<span style='letter-spacing:
+.2pt'> </span></span>服务器的配置：</p>
+
+</div>
+
+<span lang=EN-US style='font-size:12.0pt;font-family:宋体'><br clear=all
+style='page-break-before:always'>
+</span>
+
+<div class=WordSection10>
+
+<p class=MsoBodyText align=center style='text-align:center'><span lang=EN-US
+style='font-size:10.0pt'><img width=590 height=525 id="图片 13"
+src="blog3.files/image011.png"></span></p>
+
+<p class=MsoBodyText align=center style='margin-top:.2pt;text-align:center'><span
+lang=EN-US><img width=590 height=525 id="图片 6" src="blog3.files/image012.png"></span></p>
+
+<p class=MsoNormal align=center style='margin-top:3.9pt;margin-right:5.0pt;
+margin-bottom:0cm;margin-left:0cm;margin-bottom:.0001pt;text-align:center'><span
+style='font-size:10.0pt'>图<span style='letter-spacing:-2.0pt'> </span></span><span
+lang=EN-US style='font-size:10.0pt;font-family:"Times New Roman",serif'>17&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+lang=EN-US style='font-size:10.0pt;font-family:"Times New Roman",serif'>Web<span
+style='letter-spacing:-.1pt'> </span></span><span style='font-size:10.0pt'>服务器配置</span></p>
+
+<p class=MsoBodyText style='margin-top:.3pt'><span lang=EN-US style='font-size:
+8.0pt'>&nbsp;</span></p>
+
+<p class=MsoBodyText style='margin-top:0cm;margin-right:15.55pt;margin-bottom:
+0cm;margin-left:11.0pt;margin-bottom:.0001pt;text-indent:20.95pt;line-height:
+138%'><span style='letter-spacing:-.5pt'>双击客户主机 </span><span lang=EN-US
+style='font-family:"Calibri",sans-serif;letter-spacing:-.15pt'>PC0</span><span
+style='letter-spacing:-1.0pt'>，在 </span><span lang=EN-US style='font-family:
+"Calibri",sans-serif;letter-spacing:-.15pt'>Desktop</span><span lang=EN-US
+style='font-family:"Calibri",sans-serif;letter-spacing:.25pt'> </span><span
+style='letter-spacing:-.15pt'>窗口内，点击<span lang=EN-US>“</span></span><span
+lang=EN-US style='font-family:"Calibri",sans-serif;letter-spacing:-.15pt'>Web</span><span
+lang=EN-US style='font-family:"Calibri",sans-serif;letter-spacing:-.55pt'> </span><span
+lang=EN-US style='font-family:"Calibri",sans-serif;letter-spacing:-.15pt'>Browser</span><span
+lang=EN-US style='letter-spacing:-.15pt'>”</span><span style='letter-spacing:
+-.15pt'>虚拟应用，在浏览器的地</span><span style='letter-spacing:.15pt'>址栏内，输入</span><span
+lang=EN-US><a href="http://26.28.64.2/"><span style='font-family:"Calibri",sans-serif;
+color:windowtext;text-decoration:none'>http://26.28.64.2,</span></a></span><span
+lang=EN-US style='font-family:"Calibri",sans-serif;letter-spacing:.45pt'> </span><span
+style='letter-spacing:-.55pt'>以便连接 </span><span lang=EN-US style='font-family:
+"Calibri",sans-serif'>http<span style='letter-spacing:.2pt'> </span></span><span
+style='letter-spacing:-.45pt'>服务器，图 </span><span lang=EN-US style='font-family:
+"Calibri",sans-serif'>18<span style='letter-spacing:.15pt'> </span></span><span
+style='letter-spacing:-.7pt'>显示了 </span><span lang=EN-US style='font-family:
+"Calibri",sans-serif'>Web<span style='letter-spacing:.2pt'> </span></span>访问情况。</p>
+
+<p class=MsoBodyText align=center style='margin-top:.55pt;text-align:center'><span
+lang=EN-US style='font-size:12.0pt'><img border=0 width=590 height=525 id="图片 2"
+src="blog3.files/image013.png"></span></p>
+
+<p class=MsoNormal align=center style='margin-right:4.9pt;text-align:center'><span
+style='font-size:10.0pt'>图<span style='letter-spacing:-2.0pt'> </span></span><span
+lang=EN-US style='font-size:10.0pt;font-family:"Times New Roman",serif'>18&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+lang=EN-US style='font-size:10.0pt;font-family:"Times New Roman",serif'>Web<span
+style='letter-spacing:-.1pt'> </span></span><span style='font-size:10.0pt'>服务器访问结果</span></p>
+
+<p class=MsoBodyText style='margin-top:.45pt'><span lang=EN-US
+style='font-size:8.0pt'>&nbsp;</span></p>
+
+<p class=MsoBodyText style='margin-left:32.0pt'><span style='letter-spacing:
+-.25pt'>结果表明，岔路口校区 </span><span lang=EN-US style='font-family:"Calibri",sans-serif;
+letter-spacing:-.05pt'>PC0</span><span lang=EN-US style='font-family:"Calibri",sans-serif;
+letter-spacing:.55pt'> </span><span style='letter-spacing:-.45pt'>和中心校区 </span><span
+lang=EN-US style='font-family:"Calibri",sans-serif'>Web<span style='letter-spacing:
+.5pt'> </span></span>服务器之间可以通信。利用其它主机访问</p>
+
+<p class=MsoBodyText style='margin-top:5.3pt;margin-right:0cm;margin-bottom:
+0cm;margin-left:11.0pt;margin-bottom:.0001pt'><span lang=EN-US
+style='font-family:"Calibri",sans-serif'>Web<span style='letter-spacing:.05pt'>
+</span></span>服务器也可以得到类似结果。</p>
+
+<p class=MsoNormal style='line-height:138%'><b><span style='font-size:10.5pt;
+line-height:138%;color:red'>【请按上述要求自测无误，提交学号<span lang=EN-US>-</span>姓名<span
+lang=EN-US>-</span>静态路由<span lang=EN-US>.pkt</span>】</span></b></p>
+
+<p class=MsoBodyText style='margin-top:.3pt'><span lang=EN-US style='font-size:
+12.0pt'>&nbsp;</span></p>
+
+<h3 style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:28.5pt;
+text-indent:-17.55pt;line-height:normal'><a name="_bookmark55"></a><span
+lang=EN-US style='font-size:14.0pt;font-family:"Times New Roman",serif'>7.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='letter-spacing:.4pt'>配置动态路由协议 </span><span lang=EN-US style='font-family:
+"Times New Roman",serif'>RIP</span></h3>
+
+<p class=MsoBodyText style='margin-top:.25pt'><b><span lang=EN-US
+style='font-size:13.5pt;font-family:"Times New Roman",serif'>&nbsp;</span></b></p>
+
+<p class=MsoBodyText style='margin-top:.05pt;margin-right:10.4pt;margin-bottom:
+0cm;margin-left:11.0pt;margin-bottom:.0001pt;text-indent:20.95pt;line-height:
+138%'>动态路由协议采用自适应路由算法，能够根据网络拓扑的变化而重新计算机最佳路由。<span lang=EN-US style='font-family:
+"Calibri",sans-serif'>RIP<span style='letter-spacing:.45pt'> </span></span><span
+style='letter-spacing:.1pt'>协议是一种广泛使用的域内选路协议，其全称是 </span><span lang=EN-US
+style='font-family:"Calibri",sans-serif'>Routing<span style='letter-spacing:
+.6pt'> </span>Information<span style='letter-spacing:.6pt'> </span>Protocol</span>，采用<span
+lang=EN-US style='font-family:"Calibri",sans-serif'>Bellman-Ford<span
+style='letter-spacing:.2pt'> </span></span>算法。<span lang=EN-US
+style='font-family:"Calibri",sans-serif'>RFC1058<span style='letter-spacing:
+.2pt'> </span></span><span style='letter-spacing:.85pt'>是</span><span
+lang=EN-US style='font-family:"Calibri",sans-serif'>RIP<span style='letter-spacing:
+1.0pt'> </span>version<span style='letter-spacing:1.05pt'> </span>1<span
+style='letter-spacing:.2pt'> </span></span>标准文件，<span lang=EN-US
+style='font-family:"Calibri",sans-serif'>RFC<span style='letter-spacing:.95pt'>
+</span>2453<span style='letter-spacing:.2pt'> </span></span><span
+style='letter-spacing:-1.35pt'>是 </span><span lang=EN-US style='font-family:
+"Calibri",sans-serif'>RIP<span style='letter-spacing:.9pt'> </span>Version<span
+style='letter-spacing:1.05pt'> </span>2<span style='letter-spacing:.35pt'> </span></span>的标准文档。</p>
+
+</div>
+
+<span lang=EN-US style='font-size:12.0pt;line-height:138%;font-family:宋体'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<div class=WordSection11>
+
+<p class=MsoBodyText style='margin-top:2.75pt;margin-right:15.55pt;margin-bottom:
+0cm;margin-left:11.0pt;margin-bottom:.0001pt;text-align:justify;text-justify:
+inter-ideograph;text-indent:20.95pt;line-height:138%'><span style='letter-spacing:
+-.7pt'>针对步骤 </span><span lang=EN-US style='font-family:"Calibri",sans-serif;
+letter-spacing:-.15pt'>1</span><span style='letter-spacing:-.15pt'>）～</span><span
+lang=EN-US style='font-family:"Calibri",sans-serif;letter-spacing:-.15pt'>7</span><span
+style='letter-spacing:-.15pt'>）</span><span style='letter-spacing:-.35pt'>划分的子网，首先删除步骤
+</span><span lang=EN-US style='font-family:"Calibri",sans-serif;letter-spacing:
+-.15pt'>8</span><span style='letter-spacing:-.15pt'>）中配置的静态路由信息，随后配置路</span><span
+style='letter-spacing:.25pt'>由器执行</span><span lang=EN-US style='font-family:
+"Calibri",sans-serif'>RIPv2<span style='letter-spacing:-.6pt'> </span></span>算法，动态产生路由表。为了模拟实际路由器的配置过程，本部分配置过程<span
+style='letter-spacing:-.15pt'>中我们全部采用命令行模式进行。以对岔路口校区路由器进行配置为例进行分析，单击岔路</span><span
+style='letter-spacing:-.25pt'>口校区路由器的图标，点击 </span><span lang=EN-US
+style='font-family:"Calibri",sans-serif'>CLI<span style='letter-spacing:.1pt'> </span></span><span
+style='letter-spacing:-.2pt'>窗口。在命令行模式下首先设置 </span><span lang=EN-US
+style='font-family:"Calibri",sans-serif'>IP<span style='letter-spacing:.2pt'> </span></span>地址。</p>
+
+<p class=MsoBodyText style='margin-top:.1pt;margin-right:0cm;margin-bottom:
+0cm;margin-left:32.0pt;margin-bottom:.0001pt'><span lang=EN-US
+style='font-family:"Calibri",sans-serif'>Router&gt;enable&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //</span>进入特权模式</p>
+
+<p class=MsoBodyText style='margin-top:5.3pt;margin-right:0cm;margin-bottom:
+0cm;margin-left:32.0pt;margin-bottom:.0001pt'><span lang=EN-US
+style='font-family:"Calibri",sans-serif'>Router#conf&nbsp;&nbsp;&nbsp;&nbsp; t&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //</span>进入全局配置模式</p>
+
+<p class=MsoBodyText style='margin-top:5.5pt;margin-right:0cm;margin-bottom:
+0cm;margin-left:32.0pt;margin-bottom:.0001pt'><span lang=EN-US
+style='font-family:"Calibri",sans-serif'>Enter<span style='letter-spacing:-.2pt'>
+</span>configuration<span style='letter-spacing:-.2pt'> </span>commands,<span
+style='letter-spacing:-.2pt'> </span>one<span style='letter-spacing:-.2pt'> </span>per<span
+style='letter-spacing:-.25pt'> </span>line.&nbsp;&nbsp;&nbsp;&nbsp; End<span
+style='letter-spacing:-.2pt'> </span>with<span style='letter-spacing:-.05pt'> </span>CNTL/Z.</span></p>
+
+<p class=MsoBodyText style='margin-top:5.65pt;margin-right:0cm;margin-bottom:
+0cm;margin-left:32.0pt;margin-bottom:.0001pt'><span lang=EN-US
+style='font-family:"Calibri",sans-serif'>Router(config)#interface<span
+style='letter-spacing:-.5pt'> </span>fastEthernet<span style='letter-spacing:
+-.5pt'> </span>0/0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //</span>进入路由器接口配置模式</p>
+
+<p class=MsoBodyText style='margin-top:5.25pt;margin-right:0cm;margin-bottom:
+0cm;margin-left:32.0pt;margin-bottom:.0001pt'><span lang=EN-US
+style='font-family:"Calibri",sans-serif'>Router(config-if)#ip<span
+style='letter-spacing:-.4pt'> </span>address<span style='letter-spacing:-.4pt'>
+</span>26.28.0.1<span style='letter-spacing:-.25pt'> </span>255.255.240.0&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='letter-spacing:-.05pt'>//</span></span><span style='letter-spacing:-.55pt'>配置接口
+</span><span lang=EN-US style='font-family:"Calibri",sans-serif'>0/0<span
+style='letter-spacing:.3pt'> </span></span><span style='letter-spacing:-1.35pt'>的
+</span><span lang=EN-US style='font-family:"Calibri",sans-serif'>IP<span
+style='letter-spacing:.1pt'> </span></span>地址和掩码</p>
+
+<p class=MsoBodyText style='margin-top:5.3pt;margin-right:0cm;margin-bottom:
+0cm;margin-left:32.0pt;margin-bottom:.0001pt'><span lang=EN-US
+style='font-family:"Calibri",sans-serif'>Router(config-if)#no<span
+style='letter-spacing:-.3pt'> </span>shutdown&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //</span>开启接口</p>
+
+<p class=MsoBodyText style='margin-top:5.3pt;margin-right:0cm;margin-bottom:
+0cm;margin-left:32.0pt;margin-bottom:.0001pt'><span lang=EN-US
+style='font-family:"Calibri",sans-serif'>Router(config-if)#interface<span
+style='letter-spacing:-.45pt'> </span>fastEthernet<span style='letter-spacing:
+-.55pt'> </span>0/1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='letter-spacing:-.05pt'>//</span></span><span style='letter-spacing:-.6pt'>进入接口
+</span><span lang=EN-US style='font-family:"Calibri",sans-serif'>0/1<span
+style='letter-spacing:.35pt'> </span></span>配置</p>
+
+<p class=MsoBodyText style='margin-top:5.25pt;margin-right:0cm;margin-bottom:
+0cm;margin-left:32.0pt;margin-bottom:.0001pt'><span lang=EN-US
+style='font-family:"Calibri",sans-serif'>Router(config-if)#ip<span
+style='letter-spacing:-.4pt'> </span>address<span style='letter-spacing:-.4pt'>
+</span>26.28.16.1<span style='letter-spacing:-.3pt'> </span>255.255.240.0&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='letter-spacing:-.05pt'>//</span></span><span style='letter-spacing:-.55pt'>配置接口
+</span><span lang=EN-US style='font-family:"Calibri",sans-serif'>0/1<span
+style='letter-spacing:.2pt'> </span></span><span style='letter-spacing:-1.35pt'>的
+</span><span lang=EN-US style='font-family:"Calibri",sans-serif'>IP<span
+style='letter-spacing:.2pt'> </span></span>地址和掩码</p>
+
+<p class=MsoBodyText style='margin-top:5.25pt;margin-right:207.6pt;margin-bottom:
+0cm;margin-left:32.0pt;margin-bottom:.0001pt;line-height:140%'><span
+lang=EN-US style='font-family:"Calibri",sans-serif'>Router(config-if)#no<span
+style='letter-spacing:-.3pt'> </span>shutdown&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='letter-spacing:-.05pt'>//</span></span>激活接口<span lang=EN-US
+style='font-family:"Calibri",sans-serif'>Router(config-if)#exit</span></p>
+
+<p class=MsoBodyText style='margin-top:.4pt;margin-right:15.55pt;margin-bottom:
+0cm;margin-left:11.0pt;margin-bottom:.0001pt;text-indent:20.95pt;line-height:
+138%'><span style='letter-spacing:-.15pt'>上述命令为路由器两个端口分别设置了 </span><span
+lang=EN-US style='font-family:"Calibri",sans-serif'>IP<span style='letter-spacing:
+1.05pt'> </span></span><span style='letter-spacing:-.65pt'>地址 </span><span
+lang=EN-US style='font-family:"Calibri",sans-serif'>26.28.0.1<span
+style='letter-spacing:1.05pt'> </span></span><span style='letter-spacing:-.6pt'>以及
+</span><span lang=EN-US style='font-family:"Calibri",sans-serif'>26.28.16.1</span>，子网掩码均<span
+style='letter-spacing:-1.35pt'>为 </span><span lang=EN-US style='font-family:
+"Calibri",sans-serif'>255.255.240.0</span>。</p>
+
+<p class=MsoBodyText style='margin-top:.05pt;margin-right:15.8pt;margin-bottom:
+0cm;margin-left:11.0pt;margin-bottom:.0001pt;text-align:justify;text-justify:
+inter-ideograph;text-indent:20.95pt;line-height:138%'><span style='letter-spacing:
+-.55pt'>随后配置 </span><span lang=EN-US style='font-family:"Calibri",sans-serif;
+letter-spacing:-.05pt'>RIP</span><span lang=EN-US style='font-family:"Calibri",sans-serif;
+letter-spacing:.3pt'> </span><span style='letter-spacing:-.5pt'>协议，输入 </span><span
+lang=EN-US style='font-family:"Calibri",sans-serif;letter-spacing:-.05pt'>exit</span><span
+lang=EN-US style='font-family:"Calibri",sans-serif;letter-spacing:.45pt'> </span><span
+style='letter-spacing:-.85pt'>进入 </span><span lang=EN-US style='font-family:
+"Calibri",sans-serif;letter-spacing:-.05pt'>config</span><span lang=EN-US
+style='font-family:"Calibri",sans-serif;letter-spacing:.45pt'> </span>状态，<span
+lang=EN-US style='font-family:"Calibri",sans-serif'>version<span
+style='letter-spacing:1.15pt'> </span>2<span style='letter-spacing:.4pt'> </span></span><span
+style='letter-spacing:-.35pt'>命令代表使用 </span><span lang=EN-US style='font-family:
+"Calibri",sans-serif'>RIP<span style='letter-spacing:.45pt'> </span></span><span
+style='letter-spacing:-.85pt'>版本 </span><span lang=EN-US style='font-family:
+"Calibri",sans-serif'>2</span>，随<span style='letter-spacing:-.25pt'>后将路由器直接相连的两个网络地址
+</span><span lang=EN-US style='font-family:"Calibri",sans-serif'>26.28.0.0<span
+style='letter-spacing:.2pt'> </span></span><span style='letter-spacing:-.95pt'>以及
+</span><span lang=EN-US style='font-family:"Calibri",sans-serif'>26.28.16.0<span
+style='letter-spacing:.2pt'> </span></span>向邻居路由器发布。</p>
+
+<p class=MsoBodyText style='margin-top:.05pt;margin-right:164.0pt;margin-bottom:
+0cm;margin-left:32.0pt;margin-bottom:.0001pt;line-height:138%'><span
+lang=EN-US style='font-family:"Calibri",sans-serif'>Router(config-if)#exit&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='letter-spacing:-.05pt'>//</span></span>后退进入全局配置模式<span lang=EN-US
+style='font-family:"Calibri",sans-serif'>Router(config)#router<span
+style='letter-spacing:-.35pt'> </span>rip&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; //</span>配<span
+style='letter-spacing:2.5pt'>置</span><span lang=EN-US style='font-family:"Calibri",sans-serif'>RIP<span
+style='letter-spacing:.2pt'> </span></span>协议</p>
+
+<p class=MsoBodyText style='margin-top:.05pt;margin-right:144.4pt;margin-bottom:
+0cm;margin-left:11.0pt;margin-bottom:.0001pt;text-indent:20.95pt;line-height:
+127%'><span lang=EN-US style='font-family:"Calibri",sans-serif'>Router(config-router)#version<span
+style='letter-spacing:-.45pt'> </span>2&nbsp;&nbsp;&nbsp; //</span>指定<span
+style='letter-spacing:-2.6pt'> </span><span lang=EN-US style='font-family:"Calibri",sans-serif'>RIP<span
+style='letter-spacing:.05pt'> </span></span>的版本<span style='letter-spacing:
+2.05pt'>为</span><span lang=EN-US style='font-family:"Calibri",sans-serif'>RIP
+V2<span style='letter-spacing:-2.25pt'> </span>Router(config-router)#network<span
+style='letter-spacing:-.45pt'> </span>26.28.0.0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='letter-spacing:-.05pt'>//</span></span><span style='letter-spacing:-.05pt'>通</span>告<span
+style='letter-spacing:-2.75pt'> </span><span lang=EN-US style='font-family:
+"Calibri",sans-serif'>26.28.0.0<span style='letter-spacing:.2pt'> </span></span>子网</p>
+
+<p class=MsoBodyText style='margin-left:32.0pt;line-height:13.35pt'><span
+lang=EN-US style='font-family:"Calibri",sans-serif'>Router(config-router)#network<span
+style='letter-spacing:-.5pt'> </span>26.28.16.0&nbsp;&nbsp;&nbsp; <span
+style='letter-spacing:-.05pt'>//</span></span><span style='letter-spacing:-.95pt'>通告
+</span><span lang=EN-US style='font-family:"Calibri",sans-serif;letter-spacing:
+-.05pt'>26.28.</span><span lang=EN-US style='font-family:"Calibri",sans-serif;
+letter-spacing:.05pt'> </span><span lang=EN-US style='font-family:"Calibri",sans-serif'>16.0<span
+style='letter-spacing:.3pt'> </span></span>子网</p>
+
+<p class=MsoBodyText style='margin-top:5.25pt;margin-right:0cm;margin-bottom:
+0cm;margin-left:32.0pt;margin-bottom:.0001pt'><span lang=EN-US
+style='font-family:"Calibri",sans-serif'>Router(config-router)#no<span
+style='letter-spacing:-.45pt'> </span>auto-summary&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span
+style='letter-spacing:-.05pt'>//</span></span>不允许自动路由聚合</p>
+
+<p class=MsoBodyText style='margin-top:5.3pt;margin-right:15.55pt;margin-bottom:
+0cm;margin-left:11.0pt;margin-bottom:.0001pt;text-align:justify;text-justify:
+inter-ideograph;text-indent:20.95pt;line-height:138%'><span style='letter-spacing:
+-.4pt'>其他路由器配置与此类似，同样首先配置 </span><span lang=EN-US style='font-family:"Calibri",sans-serif;
+letter-spacing:-.05pt'>IP</span><span lang=EN-US style='font-family:"Calibri",sans-serif;
+letter-spacing:.7pt'> </span><span style='letter-spacing:-.65pt'>地址，随后配置 </span><span
+lang=EN-US style='font-family:"Calibri",sans-serif'>RIP<span style='letter-spacing:
+.75pt'> </span></span><span style='letter-spacing:-.4pt'>协议，所有路由器配置</span><span
+style='letter-spacing:.05pt'>完成后，点击岔路口校区路由器，进入</span><span lang=EN-US
+style='font-family:"Calibri",sans-serif'>CLI<span style='letter-spacing:-.6pt'>
+</span></span>命令行模式，执行下述命令，可以查看路由器当<span style='letter-spacing:-.35pt'>前路由表信息如图
+</span><span lang=EN-US style='font-family:"Calibri",sans-serif'>19<span
+style='letter-spacing:.2pt'> </span></span>所示。</p>
+
+<p class=MsoBodyText style='margin-top:.3pt;margin-right:0cm;margin-bottom:
+0cm;margin-left:32.0pt;margin-bottom:.0001pt'><span lang=EN-US
+style='font-family:"Calibri",sans-serif'>Router&gt;enable</span></p>
+
+<p class=MsoBodyText style='margin-top:5.9pt;margin-right:0cm;margin-bottom:
+0cm;margin-left:32.0pt;margin-bottom:.0001pt'><span lang=EN-US
+style='font-family:"Calibri",sans-serif'>Router#show<span style='letter-spacing:
+-.25pt'> </span>ip<span style='letter-spacing:-.4pt'> </span>route</span></p>
+
+</div>
+
+<span lang=EN-US style='font-size:12.0pt;font-family:"Calibri",sans-serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<div class=WordSection12>
+
+<p class=MsoBodyText align=center style='text-align:center'><span lang=EN-US
+style='font-size:10.0pt;font-family:"Calibri",sans-serif'><img border=0
+width=590 height=525 id="图片 16" src="blog3.files/image014.png"></span></p>
+
+<p class=MsoBodyText style='margin-top:.3pt'><span lang=EN-US style='font-size:
+9.0pt;font-family:"Calibri",sans-serif'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-top:3.9pt;margin-right:32.2pt;
+margin-bottom:0cm;margin-left:27.15pt;margin-bottom:.0001pt;text-align:center'><span
+style='font-size:10.0pt;letter-spacing:-.6pt'>图 </span><span lang=EN-US
+style='font-size:10.0pt;font-family:"Times New Roman",serif'>19</span><span
+lang=EN-US style='font-size:10.0pt;font-family:"Times New Roman",serif;
+letter-spacing:4.85pt'> </span><span style='font-size:10.0pt'>查看路由器路由表</span></p>
+
+<p class=MsoBodyText style='margin-top:.3pt'><span lang=EN-US style='font-size:
+8.0pt'>&nbsp;</span></p>
+
+<p class=MsoBodyText style='margin-top:.05pt;margin-right:15.55pt;margin-bottom:
+0cm;margin-left:11.0pt;margin-bottom:.0001pt;text-indent:20.95pt;line-height:
+138%'><span style='letter-spacing:-.1pt'>由路由表可见，</span><span lang=EN-US
+style='font-family:"Calibri",sans-serif;letter-spacing:-.1pt'>26.28.0.0</span><span
+lang=EN-US style='font-family:"Calibri",sans-serif;letter-spacing:.25pt'> </span><span
+style='letter-spacing:-1.4pt'>和 </span><span lang=EN-US style='font-family:
+"Calibri",sans-serif;letter-spacing:-.1pt'>26.28.16.0</span><span lang=EN-US
+style='font-family:"Calibri",sans-serif;letter-spacing:.25pt'> </span><span
+style='letter-spacing:-.05pt'>两个子网与该路由器直接相连，其他子网均需要</span><span
+style='letter-spacing:-.5pt'>经过路由器 </span><span lang=EN-US style='font-family:
+"Calibri",sans-serif;letter-spacing:-.05pt'>26.28.16.2</span><span lang=EN-US
+style='font-family:"Calibri",sans-serif;letter-spacing:.4pt'> </span><span
+style='letter-spacing:-.2pt'>转发，且到不同的子网距离分别为 </span><span lang=EN-US
+style='font-family:"Calibri",sans-serif'>1</span>～<span lang=EN-US
+style='font-family:"Calibri",sans-serif'>3<span style='letter-spacing:.3pt'> </span></span>不等。</p>
+
+<p class=MsoBodyText style='margin-top:0cm;margin-right:105.3pt;margin-bottom:
+0cm;margin-left:32.0pt;margin-bottom:.0001pt;line-height:138%'><span
+style='letter-spacing:-.25pt'>配置完成后，可以采用同样步骤 </span><span lang=EN-US
+style='font-family:"Calibri",sans-serif'>7<span style='letter-spacing:.15pt'> </span></span>中的方法测试主机间的连通性。思考：路由器如何通过相互交换信息获得（更新）自己的路由表？</p>
+
+<p class=MsoBodyText style='margin-top:.2pt'><span lang=EN-US style='font-size:
+8.0pt'>&nbsp;</span></p>
+
+<h3 style='margin-top:.05pt;margin-right:0cm;margin-bottom:0cm;margin-left:
+28.5pt;text-indent:-17.55pt;line-height:normal'><a name="_bookmark56"></a><span
+lang=EN-US style='font-size:14.0pt;font-family:"Times New Roman",serif'>8.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span><span
+style='letter-spacing:.2pt'>查看路由器交换 </span><span lang=EN-US style='font-family:
+"Times New Roman",serif'>RIP</span><span lang=EN-US style='font-family:"Times New Roman",serif;
+letter-spacing:4.65pt'> </span>报文的过程</h3>
+
+<p class=MsoBodyText style='margin-top:.4pt'><b><span lang=EN-US
+style='font-size:12.0pt'>&nbsp;</span></b></p>
+
+<p class=MsoListParagraph style='margin-top:0cm;margin-right:15.65pt;
+margin-bottom:0cm;margin-left:11.0pt;margin-bottom:.0001pt;text-indent:20.95pt;
+line-height:138%'><span lang=EN-US style='font-size:9.5pt;line-height:138%;
+letter-spacing:-.25pt'>（a）<span style='font:7.0pt "Times New Roman"'> </span></span><span
+style='font-size:10.5pt;line-height:138%;letter-spacing:-1.0pt'>选中 </span><span
+lang=EN-US style='font-size:10.5pt;line-height:138%;font-family:"Calibri",sans-serif;
+letter-spacing:-.1pt'>Packet</span><span lang=EN-US style='font-size:10.5pt;
+line-height:138%;font-family:"Calibri",sans-serif;letter-spacing:-.7pt'> </span><span
+lang=EN-US style='font-size:10.5pt;line-height:138%;font-family:"Calibri",sans-serif;
+letter-spacing:-.05pt'>Tracer</span><span lang=EN-US style='font-size:10.5pt;
+line-height:138%;font-family:"Calibri",sans-serif;letter-spacing:.25pt'> </span><span
+style='font-size:10.5pt;line-height:138%;letter-spacing:-.05pt'>主窗口右下角的<span
+lang=EN-US>“</span></span><span lang=EN-US style='font-size:10.5pt;line-height:
+138%;font-family:"Calibri",sans-serif;letter-spacing:-.05pt'>Simulation</span><span
+lang=EN-US style='font-size:10.5pt;line-height:138%;letter-spacing:-.05pt'>”</span><span
+style='font-size:10.5pt;line-height:138%;letter-spacing:-.05pt'>按钮，进入模拟模式，在该模式</span><span
+style='font-size:10.5pt;line-height:138%'>下，能够查看报文的交换过程。</span></p>
+
+<p class=MsoBodyText align=center style='text-align:center'><span lang=EN-US
+style='font-size:10.0pt'><img border=0 width=590 height=319 id="图片 11"
+src="blog3.files/image015.png"></span></p>
+
+<p class=MsoBodyText style='margin-top:.2pt'><span lang=EN-US style='font-size:
+11.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-top:0cm;margin-right:32.2pt;
+margin-bottom:0cm;margin-left:27.15pt;margin-bottom:.0001pt;text-align:center'><span
+style='font-size:10.0pt;letter-spacing:-.6pt'>图 </span><span lang=EN-US
+style='font-size:10.0pt;font-family:"Times New Roman",serif'>20</span><span
+lang=EN-US style='font-size:10.0pt;font-family:"Times New Roman",serif;
+letter-spacing:4.85pt'> </span><span style='font-size:10.0pt'>选择分组通信模式</span></p>
+
+<p class=MsoBodyText style='margin-top:.45pt'><span lang=EN-US
+style='font-size:8.0pt'>&nbsp;</span></p>
+
+<p class=MsoListParagraph style='margin-left:58.7pt;text-indent:-26.75pt'><span
+lang=EN-US style='font-size:9.5pt;letter-spacing:-.25pt'>（b）<span
+style='font:7.0pt "Times New Roman"'> </span></span><span style='font-size:
+10.5pt;letter-spacing:-.15pt'>选中<span lang=EN-US>“</span></span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri",sans-serif;letter-spacing:
+-.15pt'>Edit</span><span lang=EN-US style='font-size:10.5pt;font-family:"Calibri",sans-serif;
+letter-spacing:-.65pt'> </span><span lang=EN-US style='font-size:10.5pt;
+font-family:"Calibri",sans-serif;letter-spacing:-.15pt'>Filter</span><span
+lang=EN-US style='font-size:10.5pt;letter-spacing:-.55pt'>”</span><span
+style='font-size:10.5pt;letter-spacing:-.55pt'>按钮，将除 </span><span lang=EN-US
+style='font-size:10.5pt;font-family:"Calibri",sans-serif;letter-spacing:-.15pt'>RIP</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri",sans-serif;letter-spacing:
+.2pt'> </span><span style='font-size:10.5pt;letter-spacing:-1.4pt'>和 </span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri",sans-serif;letter-spacing:
+-.15pt'>UDP</span><span lang=EN-US style='font-size:10.5pt;font-family:"Calibri",sans-serif;
+letter-spacing:.1pt'> </span><span style='font-size:10.5pt;letter-spacing:-.15pt'>之外的选项全部去除</span><span
+style='font-size:10.5pt;letter-spacing:-.1pt'>（</span><span style='font-size:
+10.5pt;letter-spacing:-.55pt'>只捕获符合 </span><span lang=EN-US style='font-size:
+10.5pt;font-family:"Calibri",sans-serif;letter-spacing:-.1pt'>RIP</span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri",sans-serif;letter-spacing:
+.2pt'> </span><span style='font-size:10.5pt;letter-spacing:-.1pt'>和</span></p>
+
+<p class=MsoBodyText style='margin-top:5.25pt;margin-right:0cm;margin-bottom:
+0cm;margin-left:11.0pt;margin-bottom:.0001pt'><span lang=EN-US
+style='font-family:"Calibri",sans-serif'>UDP<span style='letter-spacing:.15pt'>
+</span></span>的报文）</p>
+
+</div>
+
+<span lang=EN-US style='font-size:12.0pt;font-family:宋体'><br clear=all
+style='page-break-before:always'>
+</span>
+
+<div class=WordSection13>
+
+<p class=MsoBodyText align=center style='text-align:center'><span lang=EN-US
+style='font-size:10.0pt'><img border=0 width=316 height=356 id="图片 18"
+src="blog3.files/image016.png"><img border=0 width=316 height=356 id="图片 19"
+src="blog3.files/image017.png"></span></p>
+
+<p class=MsoBodyText style='margin-top:.55pt'><span lang=EN-US
+style='font-size:5.5pt'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-top:3.85pt;margin-right:32.2pt;
+margin-bottom:0cm;margin-left:27.15pt;margin-bottom:.0001pt;text-align:center'><span
+style='font-size:10.0pt;letter-spacing:-.6pt'>图 </span><span lang=EN-US
+style='font-size:10.0pt;font-family:"Times New Roman",serif'>21</span><span
+lang=EN-US style='font-size:10.0pt;font-family:"Times New Roman",serif;
+letter-spacing:4.85pt'> </span><span style='font-size:10.0pt'>过滤显示分组类型</span></p>
+
+<p class=MsoBodyText style='margin-top:.35pt'><span lang=EN-US
+style='font-size:8.0pt'>&nbsp;</span></p>
+
+<p class=MsoListParagraph style='margin-left:57.6pt;text-indent:-25.65pt'><span
+lang=EN-US style='font-size:9.5pt;letter-spacing:-.25pt'>（c）<span
+style='font:7.0pt "Times New Roman"'> </span></span><span style='font-size:
+10.5pt;letter-spacing:-.05pt'>连续点击<span lang=EN-US>“</span></span><span
+lang=EN-US style='font-size:10.5pt;font-family:"Calibri",sans-serif;letter-spacing:
+-.05pt'>capture/forwoad</span><span lang=EN-US style='font-size:10.5pt;
+letter-spacing:-.3pt'>”</span><span style='font-size:10.5pt;letter-spacing:
+-.3pt'>按钮，观察网络上产生的 </span><span lang=EN-US style='font-size:10.5pt;font-family:
+"Calibri",sans-serif'>RIP<span style='letter-spacing:-.05pt'> </span>v2<span
+style='letter-spacing:.3pt'> </span></span><span style='font-size:10.5pt'>报文传递的方向。</span></p>
+
+<p class=MsoBodyText style='margin-top:.5pt'><span lang=EN-US style='font-size:
+5.0pt'><img border=0 width=590 height=319 id="图片 14"
+src="blog3.files/image018.png"></span></p>
+
+<p class=MsoBodyText style='margin-top:.25pt'><span lang=EN-US
+style='font-size:11.5pt'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-top:0cm;margin-right:32.05pt;
+margin-bottom:0cm;margin-left:27.15pt;margin-bottom:.0001pt;text-align:center'><span
+style='font-size:10.0pt;letter-spacing:-.65pt'>图 </span><span lang=EN-US
+style='font-size:10.0pt;font-family:"Times New Roman",serif'>22</span><span
+lang=EN-US style='font-size:10.0pt;font-family:"Times New Roman",serif;
+letter-spacing:4.6pt'> </span><span style='font-size:10.0pt;letter-spacing:
+-.15pt'>模拟模式下查看 </span><span lang=EN-US style='font-size:10.0pt;font-family:
+"Times New Roman",serif'>RIPv2<span style='letter-spacing:1.25pt'> </span></span><span
+style='font-size:10.0pt'>报文</span></p>
+
+<p class=MsoBodyText style='margin-top:.4pt'><span lang=EN-US style='font-size:
+8.0pt'>&nbsp;</span></p>
+
+<p class=MsoListParagraph style='margin-top:.05pt;margin-right:15.55pt;
+margin-bottom:0cm;margin-left:11.0pt;margin-bottom:.0001pt;text-align:justify;
+text-justify:inter-ideograph;text-indent:20.95pt;line-height:138%'><span
+lang=EN-US style='font-size:9.5pt;line-height:138%;letter-spacing:-.25pt'>（d）<span
+style='font:7.0pt "Times New Roman"'> </span></span><span style='font-size:
+10.5pt;line-height:138%;letter-spacing:-.25pt'>双击任何一个 </span><span lang=EN-US
+style='font-size:10.5pt;line-height:138%;font-family:"Calibri",sans-serif'>RIPv2<span
+style='letter-spacing:1.45pt'> </span></span><span style='font-size:10.5pt;
+line-height:138%'>报文，可以查看报文的首部信息。分析发现该报文的目的地<span style='letter-spacing:-1.0pt'>址为
+</span></span><span lang=EN-US style='font-size:10.5pt;line-height:138%;
+font-family:"Calibri",sans-serif;letter-spacing:-.1pt'>224.0.0.9</span><span
+style='font-size:10.5pt;line-height:138%;letter-spacing:-.35pt'>，为一个多播地址，表明 </span><span
+lang=EN-US style='font-size:10.5pt;line-height:138%;font-family:"Calibri",sans-serif;
+letter-spacing:-.05pt'>RIPv2</span><span lang=EN-US style='font-size:10.5pt;
+line-height:138%;font-family:"Calibri",sans-serif;letter-spacing:.3pt'> </span><span
+style='font-size:10.5pt;line-height:138%;letter-spacing:-.05pt'>协议在向邻居路由器进行路由通告时采用了多</span><span
+style='font-size:10.5pt;line-height:138%'>播技术。</span></p>
+
+</div>
+
+<span lang=EN-US style='font-size:10.5pt;line-height:138%;font-family:宋体'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<div class=WordSection14>
+
+<p class=MsoBodyText align=center style='text-align:center'><span lang=EN-US
+style='font-size:10.0pt'><img border=0 width=532 height=588 id="图片 21"
+src="blog3.files/image019.png"></span></p>
+
+<p class=MsoBodyText style='margin-top:.25pt'><span lang=EN-US
+style='font-size:8.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='margin-top:3.9pt;margin-right:4.9pt;
+margin-bottom:0cm;margin-left:0cm;margin-bottom:.0001pt;text-align:center'><span
+style='font-size:10.0pt'>图<span style='letter-spacing:-2.0pt'> </span></span><span
+lang=EN-US style='font-size:10.0pt;font-family:"Times New Roman",serif'>23&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+lang=EN-US style='font-size:10.0pt;font-family:"Times New Roman",serif'>RIPv2<span
+style='letter-spacing:-.1pt'> </span></span><span style='font-size:10.0pt'>报文基本结构</span></p>
+
+<p class=MsoBodyText style='margin-top:.3pt'><span lang=EN-US style='font-size:
+8.0pt'>&nbsp;</span></p>
+
+<p class=MsoBodyText style='margin-top:0cm;margin-right:15.65pt;margin-bottom:
+0cm;margin-left:11.0pt;margin-bottom:.0001pt;text-indent:20.95pt;line-height:
+138%'><span style='letter-spacing:-.65pt'>随后，在 </span><span lang=EN-US
+style='font-family:"Calibri",sans-serif;letter-spacing:-.05pt'>outbound</span><span
+lang=EN-US style='font-family:"Calibri",sans-serif;letter-spacing:-.65pt'> </span><span
+lang=EN-US style='font-family:"Calibri",sans-serif;letter-spacing:-.05pt'>PDU</span><span
+lang=EN-US style='font-family:"Calibri",sans-serif;letter-spacing:-.7pt'> </span><span
+lang=EN-US style='font-family:"Calibri",sans-serif;letter-spacing:-.05pt'>detail</span><span
+lang=EN-US style='font-family:"Calibri",sans-serif;letter-spacing:.3pt'> </span><span
+style='letter-spacing:-.2pt'>窗口内，可以查看报文的详细信息，包括 </span><span lang=EN-US
+style='font-family:"Calibri",sans-serif;letter-spacing:-.05pt'>RIP</span><span
+lang=EN-US style='font-family:"Calibri",sans-serif;letter-spacing:.1pt'> </span><span
+style='letter-spacing:-.05pt'>报文的具体</span>内容（<span style='letter-spacing:.5pt'>请大家结合</span><span
+lang=EN-US style='font-family:"Calibri",sans-serif'>RIP<span style='letter-spacing:
+.2pt'> </span></span>算法的运行过程对报文分析<span style='letter-spacing:-5.4pt'>）</span>。</p>
+
+<p class=MsoBodyText align=center style='text-align:center'><span lang=EN-US
+style='font-size:10.0pt'><img border=0 width=532 height=574 id="图片 22"
+src="blog3.files/image020.png"></span></p>
+
+<p class=MsoBodyText style='margin-top:.05pt'><span lang=EN-US
+style='font-size:4.0pt'>&nbsp;</span></p>
+
+</div>
+
+<span lang=EN-US style='font-size:4.0pt;font-family:宋体'><br clear=all
+style='page-break-before:auto'>
+</span>
+
+<div class=WordSection15>
+
+<p class=MsoBodyText><span lang=EN-US style='font-size:15.0pt'>&nbsp;</span></p>
+
+<span lang=EN-US style='font-size:12.0pt;font-family:宋体'><br clear=all>
+</span>
+
+<p class=MsoNormal style='margin-top:3.9pt;margin-right:0cm;margin-bottom:0cm;
+margin-left:11.0pt;margin-bottom:.0001pt'><a name="_bookmark57"></a><span
+style='font-size:10.0pt;letter-spacing:-.35pt'>图 </span><span lang=EN-US
+style='font-size:10.0pt;font-family:"Times New Roman",serif'>24<span
+style='letter-spacing:1.75pt'> </span>RIPv2<span style='letter-spacing:1.85pt'>
+</span></span><span style='font-size:10.0pt'>报文数据信息</span></p>
+
+</div>
+
+<span lang=EN-US style='font-size:10.0pt;font-family:宋体'><br clear=all
+style='page-break-before:auto'>
+</span>
+
+<div class=WordSection16>
+
+<p class=MsoNormal style='text-align:justify;text-justify:inter-ideograph;
+line-height:138%'><span lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal style='line-height:138%'><b><span style='font-size:10.5pt;
+line-height:138%;color:red'>【请按上述要求自测无误，提交学号<span lang=EN-US>-</span>姓名<span
+lang=EN-US>-</span>动态路由<span lang=EN-US>.pkt</span>】</span></b></p>
+
+</div>
+
+<span lang=EN-US style='font-size:12.0pt;line-height:138%;font-family:宋体'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<div class=WordSection17>
+
+<h3 style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:10.95pt;
+line-height:normal'><span lang=EN-US>9.</span>划分<span lang=EN-US>IP</span>地址块</h3>
+
+</div>
+
+<span lang=EN-US style='font-size:10.0pt;font-family:宋体'><br clear=all
+style='page-break-before:auto'>
+</span>
+
+<div class=WordSection18>
+
+<p class=MsoBodyText style='margin-top:.05pt'><span lang=EN-US
+style='font-size:9.5pt'>&nbsp;</span></p>
+
+<p class=MsoBodyText style='margin-top:3.6pt;margin-right:15.55pt;margin-bottom:
+0cm;margin-left:11.0pt;margin-bottom:.0001pt;text-align:justify;text-justify:
+inter-ideograph;text-indent:20.95pt;line-height:138%'><span style='letter-spacing:
+-.2pt'>在网络规划过程中我们将两个直接相连的路由器也作为一个子网处理，并为其分配了一</span><span style='letter-spacing:
+-1.4pt'>个 </span><span lang=EN-US style='font-family:"Calibri",sans-serif;
+letter-spacing:-.1pt'>4096</span><span lang=EN-US style='font-family:"Calibri",sans-serif;
+letter-spacing:.2pt'> </span><span style='letter-spacing:-.25pt'>个地址的子网地址空间，显然造成了
+</span><span lang=EN-US style='font-family:"Calibri",sans-serif;letter-spacing:
+-.05pt'>IP</span><span lang=EN-US style='font-family:"Calibri",sans-serif;
+letter-spacing:.2pt'> </span><span style='letter-spacing:-.05pt'>地址资源的很大浪费。另外，本实验设计的</span>网络拓扑中任意校区之间物理链路的失效都将导致网络不再连通。</p>
+
+</div>
+
+<span lang=EN-US style='font-size:12.0pt;line-height:138%;font-family:宋体'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<div class=WordSection19 style='layout-grid:15.6pt'>
+
+<p class=MsoBodyText style='margin-top:2.75pt;margin-right:0cm;margin-bottom:
+0cm;margin-left:32.0pt;margin-bottom:.0001pt'><span style='letter-spacing:-.05pt'>请改进本实验设计的网络拓扑和地址规划，完成相关配置并测试网络连通性。</span></p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+<p class=MsoNormal style='line-height:138%'><b><span style='font-size:10.5pt;
+line-height:138%;color:red'>【改进网络规划设计</span></b></p>
+
+<p class=MsoNormal style='line-height:138%'><b><span style='font-size:10.5pt;
+line-height:138%;color:red'>改进本实验设计的网络拓扑和地址规划，完成相关配置并测试网络连通性</span></b></p>
+
+<p class=MsoNormal style='line-height:138%'><b><span lang=EN-US
+style='font-size:10.5pt;line-height:138%;color:red'>1</span></b><b><span
+style='font-size:10.5pt;line-height:138%;color:red'>：在网络规划过程中我们将两个直接相连的路由器也作为一个子网处理，并为其分配了一个<span
+lang=EN-US> 4096 </span>个地址的子网地址空间，显然造成了<span lang=EN-US> IP </span>地址资源的很大浪费（<span
+lang=EN-US>30</span>分）<span lang=EN-US>.</span></span></b></p>
+
+<p class=MsoNormal style='line-height:138%'><b><span style='font-size:10.5pt;
+line-height:138%;color:red'>本实验设计的网络拓扑中任意校区之间物理链路的失效都将导致网络不再连通<span lang=EN-US>(10</span>分<span
+lang=EN-US>)</span></span></b></p>
+
+<p class=MsoNormal style='line-height:138%'><b><span style='font-size:10.5pt;
+line-height:138%;color:red'>】</span></b></p>
+
+<p class=MsoNormal style='text-indent:21.0pt'>答：可以使用三层交换机来代替路由器</p>
+
+<p class=MsoNormal><span lang=EN-US>&nbsp;</span></p>
+
+</div>
+
+</body>
+
+</html>
